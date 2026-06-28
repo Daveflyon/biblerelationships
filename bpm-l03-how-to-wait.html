@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lesson 03: How to Wait for God's Timing – Bible Pointers on Marriage</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="bpm-site.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; }
   body { margin: 0; padding: 0 16px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.6; font-weight: 400; color: #1c1c1e; background: #ffffff; }
@@ -94,7 +95,7 @@
   @media print { .toc-container { display: none; } .section-body { display: block !important; } body { color: #1c1c1e; } a { color: #1c1c1e; } .flashcard-back { background: #f2f2f2; } .fc-verse, .fc-def { color: #1c1c1e; } print-color-adjust: exact; }
 </style>
 </head>
-<body>
+<body data-bpm-page="lesson">
 
 <a class="back-link" href="index.html">&#8592; Back to all lessons</a>
 <div class="title-block">
@@ -106,6 +107,24 @@
 <div class="title-block" style="padding-top:0;">
   <h1>How to Wait for God's Timing</h1>
   <p class="lesson-meta">Lesson 3 of 9</p>
+</div>
+
+
+<div class="bpm-audio-panel" role="region" aria-label="Audio controls">
+  <div class="bpm-audio-inner">
+    <span class="bpm-audio-label">Audio</span>
+    <button class="bpm-audio-btn bpm-btn-play-main" id="bpm-btn-play-main" type="button" aria-label="Play entire lesson">&#9654; Play Lesson</button>
+    <button class="bpm-audio-btn bpm-btn-stop" id="bpm-btn-stop" type="button" aria-label="Stop playback" disabled>&#9632; Stop</button>
+    <div class="bpm-speed-group" aria-label="Playback speed">
+      <span class="bpm-speed-label">Speed:</span>
+      <button class="bpm-speed-btn active" type="button" data-rate="1" aria-label="Normal speed">1x</button>
+      <button class="bpm-speed-btn" type="button" data-rate="1.25" aria-label="1.25x speed">1.25x</button>
+      <button class="bpm-speed-btn" type="button" data-rate="1.5" aria-label="1.5x speed">1.5x</button>
+      <button class="bpm-speed-btn" type="button" data-rate="1.75" aria-label="1.75x speed">1.75x</button>
+      <button class="bpm-speed-btn" type="button" data-rate="2" aria-label="2x speed">2x</button>
+    </div>
+    <span class="bpm-audio-progress" id="bpm-audio-progress" aria-live="polite"></span>
+  </div>
 </div>
 
 <section id="opening-question">
@@ -339,6 +358,11 @@
   </div>
 </section>
 
+
+<div class="bpm-section-controls">
+  <button class="bpm-section-ctrl-btn" type="button" id="bpm-expand-all">&#43; Expand All</button>
+  <button class="bpm-section-ctrl-btn" type="button" id="bpm-minimise-all">&#8722; Minimise All</button>
+</div>
 <div class="page-footer">
   <p>Bible Pointers on Marriage &middot; Lesson 03: How to Wait for God's Timing &middot; The Well Shrewsbury &middot; <a href="index.html">Back to all lessons</a></p>
 </div>
@@ -357,6 +381,7 @@
   <button class="toc-btn" id="toc-btn" aria-expanded="false" aria-controls="toc-menu">&#9776; Jump to section</button>
 </nav>
 
+<script src="bpm-site.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     ['bible-teaching','discovery-questions','group-discussion','application','revision-cards'].forEach(function (id) {
@@ -364,9 +389,6 @@
       if(!btn||!body)return;
       btn.addEventListener('click',function(){var o=body.classList.toggle('open');btn.setAttribute('aria-expanded',String(o));});
     });
-    var tb=document.getElementById('toc-btn'),tm=document.getElementById('toc-menu');
-    tb.addEventListener('click',function(){var o=tm.classList.toggle('open');tb.setAttribute('aria-expanded',String(o));});
-    tm.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){tm.classList.remove('open');tb.setAttribute('aria-expanded','false');});});
     document.querySelectorAll('.flashcard').forEach(function(c){function f(){c.classList.toggle('flipped');}c.addEventListener('click',f);c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();f();}});});
     var sa=false;try{localStorage.setItem('_t','1');localStorage.removeItem('_t');sa=true;}catch(e){}
     var fs=document.querySelectorAll('.fillable[data-key]');

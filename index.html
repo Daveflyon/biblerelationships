@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bible Pointers on Marriage – The Well Shrewsbury</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="bpm-site.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; }
   body { margin: 0; padding: 0 16px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.6; font-weight: 400; color: #1c1c1e; background: #ffffff; }
@@ -72,9 +73,9 @@
   .page-footer { font-size: 13px; color: #888; text-align: center; border-top: 1px solid #cccccc; padding: 24px 0 40px; margin-top: 24px; }
 </style>
 </head>
-<body>
+<body data-bpm-page="index">
 
-<div class="title-block">
+<div class="title-block" id="top">
   <p class="series-name">Bible Pointers on Marriage</p>
   <p class="series-sub">A nine-lesson guide</p>
   <p class="series-church">The Well Shrewsbury</p>
@@ -82,11 +83,29 @@
 <hr class="title-rule">
 
 <!-- Welcome intro -->
-<div class="intro-note">
+<div class="intro-note" id="welcome-intro">
   <p style="margin:0;">Welcome to Bible Pointers on Marriage. Whether you are preparing for marriage, building one, or simply seeking to honour God in how you love others, you are in the right place. This guide works through what Scripture says about relationships and marriage one lesson at a time. Each lesson goes deep on a single question so that the truth has time to take root and shape how you live. Take it at your own pace, return to any lesson as often as you need, and let God's Word do its work. Use the sections below to begin.</p>
 </div>
 
+<div class="bpm-audio-panel" role="region" aria-label="Audio controls">
+  <div class="bpm-audio-inner">
+    <span class="bpm-audio-label">Audio</span>
+    <button class="bpm-audio-btn bpm-btn-play-main" id="bpm-btn-play-main" type="button" aria-label="Play full overview">&#9654; Play Overview</button>
+    <button class="bpm-audio-btn bpm-btn-stop" id="bpm-btn-stop" type="button" aria-label="Stop playback" disabled>&#9632; Stop</button>
+    <div class="bpm-speed-group" aria-label="Playback speed">
+      <span class="bpm-speed-label">Speed:</span>
+      <button class="bpm-speed-btn active" type="button" data-rate="1" aria-label="Normal speed">1x</button>
+      <button class="bpm-speed-btn" type="button" data-rate="1.25" aria-label="1.25x speed">1.25x</button>
+      <button class="bpm-speed-btn" type="button" data-rate="1.5" aria-label="1.5x speed">1.5x</button>
+      <button class="bpm-speed-btn" type="button" data-rate="1.75" aria-label="1.75x speed">1.75x</button>
+      <button class="bpm-speed-btn" type="button" data-rate="2" aria-label="2x speed">2x</button>
+    </div>
+    <span class="bpm-audio-progress" id="bpm-audio-progress" aria-live="polite"></span>
+  </div>
+</div>
+
 <!-- How to use accordion -->
+<div id="how-to-use">
 <button class="how-to-btn" aria-expanded="false" aria-controls="how-to-body" id="how-to-btn">
   &#128075; How to use this guide <span class="how-to-chevron" aria-hidden="true">&#9660;</span>
 </button>
@@ -115,10 +134,11 @@
   <p class="attribution">This study is based on the Discipleship Evangelism Programme by Andrew Wommack and Don W. Krow, courtesy of delessons.org, used with permission for discipleship purposes, free of charge. All scripture quotations are from the New King James Version (NKJV) unless otherwise indicated.</p>
   <p class="attribution">For further details about this course's design please contact <a href="mailto:david@highturnmedia.com">david@highturnmedia.com</a></p>
 </div>
+</div>
 
 
 <!-- Part 1: What God says marriage is -->
-<div class="part-section">
+<div class="part-section" id="part-1">
   <div class="part-header">
     <h3>Part 1 &mdash; What God Says Marriage Is</h3>
     <p>Foundation before anything else. Lessons 1 and 2.</p>
@@ -144,7 +164,7 @@
 </div>
 
 <!-- Part 2: Before you get there -->
-<div class="part-section">
+<div class="part-section" id="part-2">
   <div class="part-header">
     <h3>Part 2 &mdash; Before You Get There</h3>
     <p>For those who are single, seeking or preparing. Lessons 3, 4 and 5.</p>
@@ -178,7 +198,7 @@
 </div>
 
 <!-- Part 3: Inside the marriage -->
-<div class="part-section">
+<div class="part-section" id="part-3">
   <div class="part-header">
     <h3>Part 3 &mdash; Inside the Marriage</h3>
     <p>For those who are married or approaching it. Lessons 6, 7, 8 and 9.</p>
@@ -219,10 +239,28 @@
   </div>
 </div>
 
+<div class="bpm-section-controls">
+  <button class="bpm-section-ctrl-btn" type="button" id="bpm-expand-all">&#43; Expand All</button>
+  <button class="bpm-section-ctrl-btn" type="button" id="bpm-minimise-all">&#8722; Minimise All</button>
+</div>
+
 <div class="page-footer">
   <p>Bible Pointers on Marriage &middot; The Well Shrewsbury</p>
 </div>
 
+<nav class="toc-container" role="navigation" aria-label="Jump to section">
+  <div class="toc-menu" id="toc-menu">
+    <a href="#welcome-intro">Welcome</a>
+    <a href="#how-to-use">How to use this guide</a>
+    <a href="#part-1">Part 1 &mdash; What God Says Marriage Is</a>
+    <a href="#part-2">Part 2 &mdash; Before You Get There</a>
+    <a href="#part-3">Part 3 &mdash; Inside the Marriage</a>
+    <a href="#top" class="toc-back-top">&#8593; Back to top</a>
+  </div>
+  <button class="toc-btn" id="toc-btn" aria-expanded="false" aria-controls="toc-menu">&#9776; Jump to section</button>
+</nav>
+
+<script src="bpm-site.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var btn = document.getElementById('how-to-btn');
