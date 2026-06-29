@@ -9,6 +9,7 @@
   z-index: 950;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
   margin: 0 0 20px;
+  overflow: visible;
 }
 
 .bpm-audio-inner {
@@ -18,6 +19,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 8px 14px;
+  overflow: visible;
 }
 
 .bpm-audio-label {
@@ -71,39 +73,104 @@
   cursor: default;
 }
 
-.bpm-speed-group {
-  display: flex;
-  gap: 2px;
+.bpm-speed-dropdown {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.bpm-speed-toggle {
+  display: inline-flex;
   align-items: center;
-}
-
-.bpm-speed-label {
-  font-size: 11px;
-  color: #777;
-  margin-right: 4px;
-}
-
-.bpm-speed-btn {
+  gap: 4px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 700;
-  padding: 4px 8px;
+  padding: 6px 10px;
   border: 1px solid #cccccc;
   background: #f2f2f2;
   color: #555;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
-.bpm-speed-btn.active {
-  background: #1F3864;
-  color: #ffffff;
-  border-color: #1F3864;
+.bpm-speed-toggle:hover {
+  background: #e8e8e8;
 }
 
-.bpm-speed-btn:focus {
+.bpm-speed-toggle:focus {
   outline: 2px solid #d97706;
   outline-offset: 1px;
+}
+
+.bpm-speed-toggle[aria-expanded="true"] .bpm-speed-chevron {
+  transform: rotate(180deg);
+}
+
+.bpm-speed-chevron {
+  font-size: 10px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.bpm-speed-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  min-width: 100%;
+  z-index: 1001;
+}
+
+.bpm-speed-menu[hidden] {
+  display: none;
+}
+
+.bpm-speed-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border: none;
+  background: transparent;
+  color: #1c1c1e;
+  cursor: pointer;
+}
+
+.bpm-speed-option:hover,
+.bpm-speed-option:focus {
+  background: #f2f2f2;
+  outline: none;
+}
+
+.bpm-speed-option.active,
+.bpm-speed-option[aria-selected="true"] {
+  background: #1F3864;
+  color: #ffffff;
+}
+
+.bpm-speed-option.active:hover,
+.bpm-speed-option.active:focus,
+.bpm-speed-option[aria-selected="true"]:hover,
+.bpm-speed-option[aria-selected="true"]:focus {
+  background: #2c54a0;
+}
+
+@media (max-width: 480px) {
+  .bpm-speed-menu {
+    left: auto;
+    right: 0;
+    min-width: 7.5rem;
+  }
 }
 
 .bpm-audio-progress {

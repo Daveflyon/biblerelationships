@@ -57,19 +57,66 @@
     });
   }
 
-  function initSpeedButtons(setRate) {
+  function formatSpeedLabel(rate) {
+    return rate === 1 ? '1x' : String(rate) + 'x';
+  }
+
+  function initSpeedDropdown(setRate) {
+    var dropdown = $('.bpm-speed-dropdown');
+    var toggle = $('#bpm-speed-toggle');
+    var menu = $('#bpm-speed-menu');
+    var valueEl = $('.bpm-speed-value');
+    var options = $$('.bpm-speed-option');
+    if (!dropdown || !toggle || !menu) return;
+
     var rate = getStoredRate();
-    setRate(rate);
-    $$('.bpm-speed-btn').forEach(function (btn) {
-      btn.classList.toggle('active', parseFloat(btn.dataset.rate) === rate);
-      btn.addEventListener('click', function () {
-        var chosen = parseFloat(btn.dataset.rate);
-        setStoredRate(chosen);
-        setRate(chosen);
-        $$('.bpm-speed-btn').forEach(function (b) {
-          b.classList.toggle('active', parseFloat(b.dataset.rate) === chosen);
-        });
+
+    function applyRate(chosen) {
+      setStoredRate(chosen);
+      setRate(chosen);
+      if (valueEl) valueEl.textContent = formatSpeedLabel(chosen);
+      options.forEach(function (opt) {
+        var selected = parseFloat(opt.dataset.rate) === chosen;
+        opt.classList.toggle('active', selected);
+        opt.setAttribute('aria-selected', String(selected));
       });
+    }
+
+    function closeMenu() {
+      menu.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function openMenu() {
+      menu.hidden = false;
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+
+    applyRate(rate);
+
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (menu.hidden) openMenu();
+      else closeMenu();
+    });
+
+    options.forEach(function (opt) {
+      opt.addEventListener('click', function (e) {
+        e.stopPropagation();
+        applyRate(parseFloat(opt.dataset.rate));
+        closeMenu();
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!dropdown.contains(e.target)) closeMenu();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !menu.hidden) {
+        closeMenu();
+        toggle.focus();
+      }
     });
   }
 
@@ -298,7 +345,7 @@
 
     if (stopBtn) stopBtn.addEventListener('click', stopAll);
 
-    initSpeedButtons(function (rate) {
+    initSpeedDropdown(function (rate) {
       currentRate = rate;
     });
 

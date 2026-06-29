@@ -116,13 +116,15 @@
     <span class="bpm-audio-label">Audio</span>
     <button class="bpm-audio-btn bpm-btn-play-main" id="bpm-btn-play-main" type="button" aria-label="Play entire lesson">&#9654; Play Lesson</button>
     <button class="bpm-audio-btn bpm-btn-stop" id="bpm-btn-stop" type="button" aria-label="Stop playback" disabled>&#9632; Stop</button>
-    <div class="bpm-speed-group" aria-label="Playback speed">
-      <span class="bpm-speed-label">Speed:</span>
-      <button class="bpm-speed-btn active" type="button" data-rate="1" aria-label="Normal speed">1x</button>
-      <button class="bpm-speed-btn" type="button" data-rate="1.25" aria-label="1.25x speed">1.25x</button>
-      <button class="bpm-speed-btn" type="button" data-rate="1.5" aria-label="1.5x speed">1.5x</button>
-      <button class="bpm-speed-btn" type="button" data-rate="1.75" aria-label="1.75x speed">1.75x</button>
-      <button class="bpm-speed-btn" type="button" data-rate="2" aria-label="2x speed">2x</button>
+    <div class="bpm-speed-dropdown">
+      <button class="bpm-speed-toggle" type="button" id="bpm-speed-toggle" aria-expanded="false" aria-haspopup="listbox" aria-controls="bpm-speed-menu" aria-label="Playback speed">Speed: <span class="bpm-speed-value">1x</span><span class="bpm-speed-chevron" aria-hidden="true">&#9660;</span></button>
+      <ul class="bpm-speed-menu" id="bpm-speed-menu" role="listbox" hidden>
+        <li role="presentation"><button type="button" class="bpm-speed-option active" role="option" data-rate="1" aria-selected="true">1x</button></li>
+        <li role="presentation"><button type="button" class="bpm-speed-option" role="option" data-rate="1.25" aria-selected="false">1.25x</button></li>
+        <li role="presentation"><button type="button" class="bpm-speed-option" role="option" data-rate="1.5" aria-selected="false">1.5x</button></li>
+        <li role="presentation"><button type="button" class="bpm-speed-option" role="option" data-rate="1.75" aria-selected="false">1.75x</button></li>
+        <li role="presentation"><button type="button" class="bpm-speed-option" role="option" data-rate="2" aria-selected="false">2x</button></li>
+      </ul>
     </div>
     <span class="bpm-audio-progress" id="bpm-audio-progress" aria-live="polite"></span>
   </div>
