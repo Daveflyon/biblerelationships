@@ -446,6 +446,29 @@
     var howToUse = $('#how-to-use');
     var howToWrap = howToUse || (howToBtn ? howToBtn.parentElement : null);
 
+    function setIndexCollapsible(btn, body, open) {
+      if (!btn || !body) return;
+      body.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', String(open));
+    }
+
+    function getIndexCollapsibles() {
+      var items = [];
+      if (howToBtn && howToBody) items.push({ btn: howToBtn, body: howToBody });
+      $$('.part-section').forEach(function (part) {
+        var btn = $('.part-btn', part);
+        var body = $('.part-body', part);
+        if (btn && body) items.push({ btn: btn, body: body });
+      });
+      return items;
+    }
+
+    getIndexCollapsibles().forEach(function (item) {
+      item.btn.addEventListener('click', function () {
+        setIndexCollapsible(item.btn, item.body, !item.body.classList.contains('open'));
+      });
+    });
+
     if (howToBtn && howToBody && howToWrap && !howToBody.querySelector('.bpm-minimise-btn')) {
       addMinimiseButton(howToBody, function () {
         howToBody.classList.remove('open');
@@ -456,16 +479,18 @@
 
     var expandAll = $('#bpm-expand-all');
     var minimiseAll = $('#bpm-minimise-all');
-    if (expandAll && howToBtn && howToBody) {
+    if (expandAll) {
       expandAll.addEventListener('click', function () {
-        howToBody.classList.add('open');
-        howToBtn.setAttribute('aria-expanded', 'true');
+        getIndexCollapsibles().forEach(function (item) {
+          setIndexCollapsible(item.btn, item.body, true);
+        });
       });
     }
-    if (minimiseAll && howToBtn && howToBody) {
+    if (minimiseAll) {
       minimiseAll.addEventListener('click', function () {
-        howToBody.classList.remove('open');
-        howToBtn.setAttribute('aria-expanded', 'false');
+        getIndexCollapsibles().forEach(function (item) {
+          setIndexCollapsible(item.btn, item.body, false);
+        });
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
@@ -499,15 +524,24 @@
     }
 
     $$('.part-section').forEach(function (part) {
-      var title = cleanText($('.part-header h3', part) ? $('.part-header h3', part).textContent : 'Part');
+      var titleEl = $('.part-btn-title', part);
+      var title = cleanText(titleEl ? titleEl.textContent : 'Part');
+      var partBtn = $('.part-btn', part);
+      var partBody = $('.part-body', part);
       sections.push({
         el: part,
         title: title,
         playBtn: null,
         open: function () {
+          if (partBtn && partBody) {
+            partBody.classList.add('open');
+            partBtn.setAttribute('aria-expanded', 'true');
+          }
           part.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         },
-        getText: function () { return extractSectionText(part); }
+        getText: function () {
+          return extractSectionText(partBody || part);
+        }
       });
     });
 
