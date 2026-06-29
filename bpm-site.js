@@ -90,6 +90,12 @@
     return playBtn;
   }
 
+  function removePlaySectionUI(root) {
+    var scope = root || document;
+    scope.querySelectorAll('.bpm-play-bar').forEach(function (el) { el.remove(); });
+    scope.querySelectorAll('.bpm-play-section-btn').forEach(function (el) { el.remove(); });
+  }
+
   function unwrapLegacyLayout(section) {
     var collapseHead = $('.bpm-collapse-head', section);
     if (collapseHead) {
@@ -341,7 +347,6 @@
 
       var toggle = $('.section-toggle', section);
       var body = $('.section-body', section);
-      var h2 = $('h2', section);
 
       if (toggle && body) {
         collapsible.push({ toggle: toggle, body: body, section: section });
@@ -353,13 +358,9 @@
             section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           });
         }
-      } else if (h2 && !section.querySelector('.bpm-play-bar')) {
-        var playBtn = createPlayButton();
-        var bar = document.createElement('div');
-        bar.className = 'bpm-play-bar bpm-play-always';
-        bar.appendChild(playBtn);
-        h2.insertAdjacentElement('afterend', bar);
-        section._bpmPlayBtn = playBtn;
+      } else {
+        removePlaySectionUI(section);
+        section._bpmPlayBtn = null;
       }
     });
 
@@ -394,10 +395,11 @@
       var title = titleEl ? cleanText(titleEl.textContent.replace(/\u25BC|\u25B2|▼|▲/g, '')) : section.id;
       var toggle = $('.section-toggle', section);
       var body = $('.section-body', section);
+      var collapsible = !!(toggle && body);
       return {
         el: section,
         title: title,
-        playBtn: section._bpmPlayBtn || null,
+        playBtn: collapsible ? (section._bpmPlayBtn || null) : null,
         open: function () {
           if (toggle && body) openCollapsible(toggle, body);
         },
@@ -437,6 +439,7 @@
 
   function initIndexPage() {
     unwrapIndexLegacy();
+    removePlaySectionUI(document.body);
 
     var howToBtn = $('#how-to-btn');
     var howToBody = $('#how-to-body');
@@ -444,30 +447,12 @@
     var howToWrap = howToUse || (howToBtn ? howToBtn.parentElement : null);
 
     if (howToBtn && howToBody && howToWrap && !howToBody.querySelector('.bpm-minimise-btn')) {
-      if (!howToBody.querySelector('.bpm-play-bar')) {
-        howToWrap._bpmPlayBtn = addPlayBar(howToBody, true);
-      }
-
       addMinimiseButton(howToBody, function () {
         howToBody.classList.remove('open');
         howToBtn.setAttribute('aria-expanded', 'false');
         howToWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     }
-
-    $$('.part-section').forEach(function (part, i) {
-      if (part.querySelector('.bpm-play-bar')) return;
-      var list = $('.lesson-list', part);
-      if (!list) return;
-      var playBtn = createPlayButton();
-      var bar = document.createElement('div');
-      bar.className = 'bpm-play-bar bpm-play-always bpm-play-in-part';
-      bar.appendChild(playBtn);
-      part.insertBefore(bar, list);
-      var partTitle = cleanText($('.part-header h3', part) ? $('.part-header h3', part).textContent : 'Part ' + (i + 1));
-      playBtn.setAttribute('aria-label', 'Play ' + partTitle + ' section');
-      part._bpmPlayBtn = playBtn;
-    });
 
     var expandAll = $('#bpm-expand-all');
     var minimiseAll = $('#bpm-minimise-all');
@@ -489,19 +474,10 @@
 
     var intro = $('.intro-note');
     if (intro) {
-      if (!intro.querySelector('.bpm-play-bar')) {
-        var introPlay = createPlayButton();
-        var introBar = document.createElement('div');
-        introBar.className = 'bpm-play-bar bpm-play-always';
-        introBar.appendChild(introPlay);
-        intro.insertBefore(introBar, intro.firstChild);
-        introPlay.setAttribute('aria-label', 'Play Welcome section');
-        intro._bpmPlayBtn = introPlay;
-      }
       sections.push({
         el: intro,
         title: 'Welcome',
-        playBtn: intro._bpmPlayBtn || intro.querySelector('.bpm-play-section-btn'),
+        playBtn: null,
         open: function () {
           intro.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         },
@@ -513,7 +489,7 @@
       sections.push({
         el: howToWrap,
         title: 'How to use this guide',
-        playBtn: howToWrap._bpmPlayBtn || howToBody.querySelector('.bpm-play-section-btn'),
+        playBtn: null,
         open: function () {
           howToBody.classList.add('open');
           howToBtn.setAttribute('aria-expanded', 'true');
@@ -527,7 +503,7 @@
       sections.push({
         el: part,
         title: title,
-        playBtn: part._bpmPlayBtn || part.querySelector('.bpm-play-section-btn'),
+        playBtn: null,
         open: function () {
           part.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         },
