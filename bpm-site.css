@@ -3,7 +3,7 @@
 .bpm-audio-panel {
   background: #ffffff;
   border-bottom: 2px solid #1F3864;
-  padding: 10px 20px;
+  padding: 8px 12px;
   position: sticky;
   top: 0;
   z-index: 950;
@@ -16,32 +16,26 @@
   max-width: 900px;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 8px 14px;
+  gap: 6px;
   overflow: visible;
-}
-
-.bpm-audio-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: #1F3864;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  flex-shrink: 0;
 }
 
 .bpm-audio-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  padding: 6px 14px;
+  padding: 8px 10px;
   border-radius: 4px;
   border: none;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-height: 36px;
 }
 
 .bpm-audio-btn:focus {
@@ -52,6 +46,8 @@
 .bpm-btn-play-main {
   background: #1F3864;
   color: #ffffff;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .bpm-btn-play-main:hover {
@@ -81,17 +77,18 @@
 .bpm-speed-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 700;
-  padding: 6px 10px;
+  padding: 8px 8px;
   border: 1px solid #cccccc;
   background: #f2f2f2;
   color: #555;
   cursor: pointer;
   border-radius: 4px;
   white-space: nowrap;
+  min-height: 36px;
 }
 
 .bpm-speed-toggle:hover {
@@ -174,10 +171,44 @@
 }
 
 .bpm-audio-progress {
-  font-size: 12px;
+  font-size: 11px;
   color: #888;
   margin-left: auto;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.bpm-audio-progress:empty {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .bpm-audio-panel {
+    padding: 10px 20px;
+  }
+
+  .bpm-audio-inner {
+    gap: 10px;
+  }
+
+  .bpm-audio-btn {
+    font-size: 13px;
+    padding: 6px 14px;
+    gap: 6px;
+    min-height: 0;
+  }
+
+  .bpm-speed-toggle {
+    padding: 6px 10px;
+    min-height: 0;
+  }
+
+  .bpm-audio-progress {
+    font-size: 12px;
+  }
 }
 
 .bpm-play-section-btn {

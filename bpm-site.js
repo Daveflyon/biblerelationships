@@ -58,7 +58,9 @@
   }
 
   function formatSpeedLabel(rate) {
-    return rate === 1 ? '1x' : String(rate) + 'x';
+    if (rate === 1) return '1.0x';
+    if (rate === 2) return '2.0x';
+    return String(rate) + 'x';
   }
 
   function initSpeedDropdown(setRate) {
