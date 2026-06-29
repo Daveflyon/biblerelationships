@@ -154,111 +154,20 @@
   border-color: #2c54a0;
 }
 
-.bpm-section-close-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1;
-  background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 3px;
-  cursor: pointer;
-  flex-shrink: 0;
+.bpm-play-bar {
+  margin: 0 0 14px;
 }
 
-.bpm-section-close-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
+.section-body:not(.open) > .bpm-play-bar:first-child,
+.how-to-body:not(.open) > .bpm-play-bar:first-child {
+  display: none;
 }
 
-.bpm-section-close-btn.bpm-on-light {
+.bpm-play-in-part {
+  padding: 10px 16px;
   background: #f2f2f2;
-  color: #777;
-  border-color: #cccccc;
-}
-
-.bpm-section-close-btn.bpm-on-light:hover {
-  background: #e0e0e0;
-  color: #1F3864;
-}
-
-.bpm-section-close-btn:focus {
-  outline: 2px solid #d97706;
-  outline-offset: 2px;
-}
-
-.bpm-collapse-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-}
-
-.bpm-collapse-head .section-toggle {
-  flex: 1;
-  margin-top: 0;
-  min-width: 0;
-}
-
-.bpm-static-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  margin-bottom: 12px;
-  border-bottom: 2px solid #1F3864;
-  padding-bottom: 8px;
-}
-
-.bpm-static-head h2 {
-  margin: 0;
-  flex: 1;
-  min-width: 0;
-}
-
-.bpm-static-head + .opening-box,
-.bpm-static-head + .scripture-block,
-.bpm-static-head + .core-truth-box {
-  margin-top: 0;
-}
-
-.bpm-index-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.bpm-index-head .how-to-btn {
-  flex: 1;
-  min-width: 0;
-}
-
-.bpm-part-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.bpm-part-head .part-header {
-  flex: 1;
-  min-width: 0;
-}
-
-.bpm-part-head .bpm-play-section-btn {
-  margin-top: 12px;
-  margin-right: 12px;
-  align-self: flex-start;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
 }
 
 .bpm-minimise-btn {
@@ -405,7 +314,7 @@ section.bpm-section-playing,
   .bpm-minimise-btn,
   .bpm-section-controls,
   .bpm-play-section-btn,
-  .bpm-section-close-btn,
+  .bpm-play-bar,
   .toc-container {
     display: none !important;
   }
