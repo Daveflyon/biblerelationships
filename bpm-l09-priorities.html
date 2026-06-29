@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lesson 09: Getting the Priorities Right – Bible Pointers on Marriage</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="bpm-site.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; }
@@ -32,17 +32,6 @@
   .scripture-block { border-left: 4px solid #1F3864; background: #f2f2f2; padding: 16px 20px; margin: 20px 0; border-radius: 0 4px 4px 0; }
   .scripture-ref { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: #1F3864; text-transform: uppercase; margin: 0 0 8px; }
   .scripture-text { font-size: 15px; line-height: 1.7; color: #1c1c1e; margin: 0; font-style: italic; }
-  .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 4px 4px 0; }
-  .callout-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 8px; }
-  .callout p:last-child { margin-bottom: 0; }
-  .callout.note    { border-left: 4px solid #d97706; background: #fffbf0; }
-  .callout.note    .callout-label { color: #d97706; }
-  .callout.depth   { border-left: 4px solid #1F3864; background: #eef2f8; }
-  .callout.depth   .callout-label { color: #1F3864; }
-  .callout.tip     { border-left: 4px solid #276221; background: #f0f7f0; }
-  .callout.tip     .callout-label { color: #276221; }
-  .callout.caution { border-left: 4px solid #8b0000; background: #fce8e8; }
-  .callout.caution .callout-label { color: #8b0000; }
   .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
   table { width: 100%; border-collapse: collapse; font-size: 14px; }
   thead tr { background: #1F3864; color: #ffffff; }
@@ -386,29 +375,6 @@
 </nav>
 
 <script src="bpm-site.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    ['bible-teaching','discovery-questions','group-discussion','application','revision-cards'].forEach(function (id) {
-      var btn=document.getElementById(id+'-btn'),body=document.getElementById(id+'-body');
-      if(!btn||!body)return;
-      btn.addEventListener('click',function(){var o=body.classList.toggle('open');btn.setAttribute('aria-expanded',String(o));});
-    });
-    document.querySelectorAll('.flashcard').forEach(function(c){function f(){c.classList.toggle('flipped');}c.addEventListener('click',f);c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();f();}});});
-    var sa=false;try{localStorage.setItem('_t','1');localStorage.removeItem('_t');sa=true;}catch(e){}
-    var fs=document.querySelectorAll('.fillable[data-key]');
-    fs.forEach(function(el){if(sa){var s=localStorage.getItem(el.getAttribute('data-key'));if(s)el.innerHTML=s;}});
-    fs.forEach(function(el){el.addEventListener('input',function(){if(sa)localStorage.setItem(el.getAttribute('data-key'),el.innerHTML);});});
-    document.getElementById('download-btn').addEventListener('click',function(){
-      var rows=document.querySelectorAll('#discovery-questions tbody tr'),lines=['Bible Pointers on Marriage','Lesson 09: Getting the Priorities Right','Key Discovery Questions',''];
-      rows.forEach(function(r,i){var c=r.querySelectorAll('td');lines.push('Q'+(i+1)+': '+(c[0]?c[0].innerText.trim():''));lines.push('My Answer: '+(c[1]?c[1].querySelector('.fillable').innerText.trim()||'(none)':''));lines.push('Group Notes: '+(c[2]?c[2].querySelector('.fillable').innerText.trim()||'(none)':''));lines.push('');});
-      var b=new Blob([lines.join('\n')],{type:'text/plain'}),u=URL.createObjectURL(b),a=document.createElement('a');
-      a.href=u;a.download='bpm-l09-my-answers.txt';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(u);
-    });
-    document.getElementById('clear-btn').addEventListener('click',function(){
-      if(!confirm('Clear all your answers? This cannot be undone.'))return;
-      fs.forEach(function(el){el.innerHTML='';if(sa)localStorage.removeItem(el.getAttribute('data-key'));});
-    });
-  });
-</script>
+<script src="bpm-lesson-page.js"></script>
 </body>
 </html>

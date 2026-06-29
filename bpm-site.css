@@ -16,7 +16,7 @@
   max-width: 900px;
   margin: 0 auto;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   gap: 6px;
   overflow: visible;
@@ -342,6 +342,21 @@ section.bpm-section-playing,
   border-radius: 4px;
 }
 
+mark.bpm-read-sentence {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+mark.bpm-read-sentence.bpm-read-active,
+.bpm-reading-active {
+  background: #ffe08a;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  border-radius: 2px;
+  transition: background 0.15s ease;
+}
+
 .toc-menu .toc-back-top {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-weight: 700;
@@ -349,9 +364,13 @@ section.bpm-section-playing,
 
 .toc-container {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  right: calc(24px + env(safe-area-inset-right, 0px));
   z-index: 1000;
+}
+
+body[data-bpm-page="lesson"] {
+  padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
 }
 
 .toc-btn {
@@ -407,6 +426,141 @@ section.bpm-section-playing,
   outline: none;
 }
 
+/* Mobile: stack wide tables instead of horizontal scroll */
+@media (max-width: 639px) {
+  .table-wrap {
+    overflow-x: visible;
+    margin: 16px 0 24px;
+  }
+
+  .table-wrap table {
+    display: block;
+    width: 100%;
+  }
+
+  .table-wrap thead {
+    display: none;
+  }
+
+  .table-wrap tbody {
+    display: block;
+  }
+
+  .table-wrap tbody tr {
+    display: block;
+    margin-bottom: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  .table-wrap tbody td {
+    display: block;
+    width: 100% !important;
+    border: none;
+    border-bottom: 1px solid #eeeeee;
+    box-sizing: border-box;
+  }
+
+  .table-wrap tbody td:last-child {
+    border-bottom: none;
+  }
+
+  .table-wrap tbody td::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #1F3864;
+    margin-bottom: 8px;
+  }
+
+  .table-wrap td.label-cell {
+    background: #f2f2f2;
+  }
+}
+
+/* Lesson content: progression links and callouts */
+.progression-link {
+  border-left: 4px solid #cccccc;
+  background: #f9f9f9;
+  padding: 12px 16px;
+  margin: 0 0 24px;
+  border-radius: 0 4px 4px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.progression-link strong {
+  color: #1F3864;
+}
+
+.callout {
+  padding: 14px 18px;
+  margin: 20px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.callout-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout.note {
+  border-left: 4px solid #d97706;
+  background: #fffbf0;
+}
+
+.callout.note .callout-label {
+  color: #d97706;
+}
+
+.callout.depth {
+  border-left: 4px solid #1F3864;
+  background: #eef2f8;
+}
+
+.callout.depth .callout-label {
+  color: #1F3864;
+}
+
+.callout.tip {
+  border-left: 4px solid #276221;
+  background: #f0f7f0;
+}
+
+.callout.tip .callout-label {
+  color: #276221;
+}
+
+.callout.caution {
+  border-left: 4px solid #8b0000;
+  background: #fce8e8;
+}
+
+.callout.caution .callout-label {
+  color: #8b0000;
+}
+
+.callout.confidence {
+  border-left: 4px solid #5b21b6;
+  background: #f5f3ff;
+}
+
+.callout.confidence .callout-label {
+  color: #5b21b6;
+}
+
 @media print {
   .bpm-audio-panel,
   .bpm-minimise-btn,
@@ -415,5 +569,17 @@ section.bpm-section-playing,
   .bpm-play-bar,
   .toc-container {
     display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flashcard-inner,
+  .section-chevron,
+  .bpm-speed-chevron,
+  .how-to-chevron,
+  .part-chevron,
+  mark.bpm-read-sentence.bpm-read-active,
+  .bpm-reading-active {
+    transition: none !important;
   }
 }
