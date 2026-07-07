@@ -51,7 +51,17 @@
   .section-header-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
   .section-header-btn[aria-expanded="false"] { border-radius: 4px; }
   .section-header-text { flex: 1; min-width: 0; padding-right: 8px; }
-  .section-header-btn h3 { color: #ffffff; border: none; padding: 0; margin: 0; font-size: 16px; font-weight: 700; letter-spacing: 0.05em; font-family: Arial, Helvetica, sans-serif; line-height: 1.35; }
+  .section-header-btn h3 { color: #ffffff; border: none; padding: 0; margin: 0; font-size: 16px; font-weight: 700; letter-spacing: 0.03em; font-family: Arial, Helvetica, sans-serif; line-height: 1.35; }
+  .section-id {
+    display: block;
+    color: #f0b429;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+  }
+  .section-name { display: block; color: #ffffff; font-size: 16px; letter-spacing: 0.03em; text-transform: none; }
   .section-desc,
   .section-lessons { color: #e8e4dc; font-size: 13px; margin: 2px 0 0; }
   .section-lessons { margin-top: 2px; }
@@ -59,7 +69,6 @@
   .section-header-btn[aria-expanded="true"] .section-chevron { transform: rotate(180deg); }
   .section-body { display: none; }
   .section-body.open { display: block; }
-  #section-a-btn .section-id { display: block; }
   .lesson-list { border: 1px solid #cccccc; border-top: none; border-radius: 0 0 4px 4px; overflow: hidden; }
   .lesson-item { display: flex; align-items: stretch; border-bottom: 1px solid #cccccc; text-decoration: none; color: #1c1c1e; transition: background 0.15s; }
   .lesson-item:last-child { border-bottom: none; }
@@ -166,7 +175,7 @@
 <div class="section-group">
   <button class="section-header-btn" type="button" id="section-b-btn" aria-expanded="true" aria-controls="section-b-body">
     <span class="section-header-text">
-      <h3>Section B: Before You Get There</h3>
+      <h3><span class="section-id">Section B:</span> <span class="section-name">Before You Get There</span></h3>
       <p class="section-desc">For those who are single, seeking or preparing.</p>
       <p class="section-lessons">Lessons 3, 4 and 5.</p>
     </span>
@@ -206,7 +215,7 @@
 <div class="section-group">
   <button class="section-header-btn" type="button" id="section-c-btn" aria-expanded="true" aria-controls="section-c-body">
     <span class="section-header-text">
-      <h3>Section C: Inside the Marriage</h3>
+      <h3><span class="section-id">Section C:</span> <span class="section-name">Inside the Marriage</span></h3>
       <p class="section-desc">For those who are married or approaching it.</p>
       <p class="section-lessons">Lessons 6 through 10.</p>
     </span>
