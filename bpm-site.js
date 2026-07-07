@@ -1063,6 +1063,11 @@
         var body = $('.part-body', part);
         if (btn && body) items.push({ btn: btn, body: body });
       });
+      $$('.section-group').forEach(function (group) {
+        var btn = $('.section-header-btn', group);
+        var body = $('.section-body', group);
+        if (btn && body) items.push({ btn: btn, body: body });
+      });
       return items;
     }
 
@@ -1079,6 +1084,17 @@
         howToWrap.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
       });
     }
+
+    $$('.section-group').forEach(function (group) {
+      var btn = $('.section-header-btn', group);
+      var body = $('.section-body', group);
+      if (btn && body && !body.querySelector('.bpm-minimise-btn')) {
+        addMinimiseButton(body, function () {
+          setIndexCollapsible(btn, body, false);
+          group.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
+        });
+      }
+    });
 
     var expandAll = $('#bpm-expand-all');
     var minimiseAll = $('#bpm-minimise-all');
@@ -1169,23 +1185,44 @@
       });
     });
 
-    // F1 index compatibility: support non-collapsible section groups.
-    if (!sections.length || !$$('.part-section').length) {
-      $$('.section-group').forEach(function (group) {
-        var titleEl = $('.section-header h3', group);
-        var title = cleanText(titleEl ? titleEl.textContent : 'Section');
+    $$('.section-group').forEach(function (group) {
+      var btn = $('.section-header-btn', group);
+      var body = $('.section-body', group);
+      var titleEl = $('.section-header-btn h3', group);
+      var title = cleanText(titleEl ? titleEl.textContent : 'Section');
+      if (btn && body) {
         sections.push({
-          el: group,
+          el: body,
           scrollEl: group,
           title: title,
           playBtn: null,
-          open: function () { scrollToView(group); },
-          close: function () {},
-          isOpen: function () { return true; },
-          getText: function () { return extractSectionText(group); }
+          open: function () {
+            setIndexCollapsible(btn, body, true);
+            scrollToView(group);
+          },
+          close: function () {
+            setIndexCollapsible(btn, body, false);
+          },
+          isOpen: function () {
+            return body.classList.contains('open');
+          },
+          getText: function () {
+            return extractSectionText(body);
+          }
         });
+        return;
+      }
+      sections.push({
+        el: group,
+        scrollEl: group,
+        title: title,
+        playBtn: null,
+        open: function () { scrollToView(group); },
+        close: function () {},
+        isOpen: function () { return true; },
+        getText: function () { return extractSectionText(group); }
       });
-    }
+    });
 
     createAudioEngine({
       sections: sections,
