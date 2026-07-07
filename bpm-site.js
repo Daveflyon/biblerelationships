@@ -17,8 +17,8 @@
 
   function storageOK() {
     try {
-      localStorage.setItem('_btf_t', '1');
-      localStorage.removeItem('_btf_t');
+      localStorage.setItem('_bpm_t', '1');
+      localStorage.removeItem('_bpm_t');
       return true;
     } catch (e) {
       return false;
@@ -1168,6 +1168,24 @@
         }
       });
     });
+
+    // F1 index compatibility: support non-collapsible section groups.
+    if (!sections.length || !$$('.part-section').length) {
+      $$('.section-group').forEach(function (group) {
+        var titleEl = $('.section-header h3', group);
+        var title = cleanText(titleEl ? titleEl.textContent : 'Section');
+        sections.push({
+          el: group,
+          scrollEl: group,
+          title: title,
+          playBtn: null,
+          open: function () { scrollToView(group); },
+          close: function () {},
+          isOpen: function () { return true; },
+          getText: function () { return extractSectionText(group); }
+        });
+      });
+    }
 
     createAudioEngine({
       sections: sections,
