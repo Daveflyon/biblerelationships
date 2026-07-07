@@ -42,7 +42,7 @@
 
   .section-group { margin-bottom: 40px; }
   .section-header-btn {
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex; align-items: flex-start; justify-content: space-between;
     width: 100%; background: #1F3864; color: #ffffff; border: none;
     border-radius: 4px 4px 0 0; padding: 12px 20px; cursor: pointer;
     font-family: Arial, Helvetica, sans-serif; text-align: left;
@@ -50,13 +50,18 @@
   .section-header-btn:hover { background: #2c54a0; }
   .section-header-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
   .section-header-btn[aria-expanded="false"] { border-radius: 4px; }
-  .section-header-text { flex: 1; min-width: 0; }
-  .section-header-btn h3 { color: #ffffff; border: none; padding: 0; margin: 0; font-size: 16px; font-weight: 700; letter-spacing: 0.05em; font-family: Arial, Helvetica, sans-serif; }
-  .section-header-btn p { color: #e8e4dc; font-size: 13px; margin: 2px 0 0; }
-  .section-chevron { font-size: 14px; transition: transform 0.25s ease; flex-shrink: 0; margin-left: 12px; }
+  .section-header-text { flex: 1; min-width: 0; padding-right: 8px; }
+  .section-header-btn h3 { color: #ffffff; border: none; padding: 0; margin: 0; font-size: 16px; font-weight: 700; letter-spacing: 0.05em; font-family: Arial, Helvetica, sans-serif; line-height: 1.35; }
+  .section-desc,
+  .section-lessons { color: #e8e4dc; font-size: 13px; margin: 2px 0 0; }
+  .section-lessons { margin-top: 2px; }
+  .section-chevron { font-size: 14px; transition: transform 0.25s ease; flex-shrink: 0; margin-left: 4px; margin-top: 2px; }
   .section-header-btn[aria-expanded="true"] .section-chevron { transform: rotate(180deg); }
   .section-body { display: none; }
   .section-body.open { display: block; }
+  @media (max-width: 639px) {
+    .section-header-btn .section-id { display: block; }
+  }
   .lesson-list { border: 1px solid #cccccc; border-top: none; border-radius: 0 0 4px 4px; overflow: hidden; }
   .lesson-item { display: flex; align-items: stretch; border-bottom: 1px solid #cccccc; text-decoration: none; color: #1c1c1e; transition: background 0.15s; }
   .lesson-item:last-child { border-bottom: none; }
@@ -131,8 +136,9 @@
 <div class="section-group">
   <button class="section-header-btn" type="button" id="section-a-btn" aria-expanded="true" aria-controls="section-a-body">
     <span class="section-header-text">
-      <h3>Section A: What God Says Marriage Is</h3>
-      <p>Foundation before anything else. Lessons 1 and 2.</p>
+      <h3><span class="section-id">Section A:</span> <span class="section-name">What God Says Marriage Is</span></h3>
+      <p class="section-desc">Foundation before anything else.</p>
+      <p class="section-lessons">Lessons 1 and 2.</p>
     </span>
     <span class="section-chevron" aria-hidden="true">&#9660;</span>
   </button>
@@ -163,7 +169,8 @@
   <button class="section-header-btn" type="button" id="section-b-btn" aria-expanded="true" aria-controls="section-b-body">
     <span class="section-header-text">
       <h3>Section B: Before You Get There</h3>
-      <p>For those who are single, seeking or preparing. Lessons 3, 4 and 5.</p>
+      <p class="section-desc">For those who are single, seeking or preparing.</p>
+      <p class="section-lessons">Lessons 3, 4 and 5.</p>
     </span>
     <span class="section-chevron" aria-hidden="true">&#9660;</span>
   </button>
@@ -202,7 +209,8 @@
   <button class="section-header-btn" type="button" id="section-c-btn" aria-expanded="true" aria-controls="section-c-body">
     <span class="section-header-text">
       <h3>Section C: Inside the Marriage</h3>
-      <p>For those who are married or approaching it. Lessons 6 through 10.</p>
+      <p class="section-desc">For those who are married or approaching it.</p>
+      <p class="section-lessons">Lessons 6 through 10.</p>
     </span>
     <span class="section-chevron" aria-hidden="true">&#9660;</span>
   </button>
