@@ -1096,21 +1096,34 @@
       }
     });
 
+    function getLessonSectionCollapsibles() {
+      var items = [];
+      $$('.section-group').forEach(function (group) {
+        var btn = $('.section-header-btn', group);
+        var body = $('.section-body', group);
+        if (btn && body) items.push({ btn: btn, body: body });
+      });
+      return items;
+    }
+
     var expandAll = $('#bpm-expand-all');
     var minimiseAll = $('#bpm-minimise-all');
     if (expandAll) {
       expandAll.addEventListener('click', function () {
-        getIndexCollapsibles().forEach(function (item) {
+        getLessonSectionCollapsibles().forEach(function (item) {
           setIndexCollapsible(item.btn, item.body, true);
         });
       });
     }
     if (minimiseAll) {
       minimiseAll.addEventListener('click', function () {
-        getIndexCollapsibles().forEach(function (item) {
+        getLessonSectionCollapsibles().forEach(function (item) {
           setIndexCollapsible(item.btn, item.body, false);
         });
-        window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+        var lessonsHeading = $('.lessons-heading-row');
+        if (lessonsHeading) {
+          lessonsHeading.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
+        }
       });
     }
 

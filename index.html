@@ -55,11 +55,11 @@
   .section-id {
     display: block;
     color: #f0b429;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin: 0 0 4px;
+    margin: 0 0 6px;
   }
   .section-name { display: block; color: #ffffff; font-size: 16px; letter-spacing: 0.03em; text-transform: none; }
   .section-desc,
@@ -78,6 +78,16 @@
   .lesson-title { font-weight: 700; font-size: 15px; color: #1F3864; margin: 0 0 2px; }
   .lesson-desc { font-size: 13px; color: #555; margin: 0; }
   .lesson-arrow { display: flex; align-items: center; padding: 0 14px; color: #1F3864; font-size: 18px; flex-shrink: 0; }
+
+  .lessons-heading-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    margin-top: 40px; margin-bottom: 20px; border-bottom: 2px solid #1F3864; padding-bottom: 8px;
+  }
+  .lessons-heading {
+    font-size: 22px; font-weight: 700; color: #1F3864; text-transform: uppercase;
+    letter-spacing: 0.07em; margin: 0;
+  }
+  .lessons-controls-end { display: flex; justify-content: flex-end; margin: 0 0 24px; }
 
   .page-footer { font-size: 13px; color: #888; text-align: center; border-top: 1px solid #cccccc; padding: 24px 0 40px; margin-top: 24px; }
 </style>
@@ -137,7 +147,10 @@
   <p class="attribution">This study draws on teaching from the Discipleship Evangelism Programme (Andrew Wommack and Don W. Krow, delessons.org). Thank you for granting permission to duplicate or reproduce it for discipleship purposes, on the condition that it is distributed free of charge. A special thanks also to all whose feedback and contributions have helped shape this study. All scripture quotations are from the New King James Version (NKJV) unless otherwise indicated.</p>
 </div>
 
-<h2 style="font-size:22px;font-weight:700;color:#1F3864;text-transform:uppercase;letter-spacing:0.07em;margin-top:40px;margin-bottom:20px;border-bottom:2px solid #1F3864;padding-bottom:8px;">Lessons</h2>
+<div class="lessons-heading-row">
+  <h2 class="lessons-heading">Lessons</h2>
+  <button class="bpm-section-ctrl-btn" type="button" id="bpm-expand-all">&#43; Expand all</button>
+</div>
 
 <!-- Section A -->
 <div class="section-group">
@@ -265,6 +278,10 @@
     </a>
   </div>
   </div>
+</div>
+
+<div class="lessons-controls-end">
+  <button class="bpm-section-ctrl-btn" type="button" id="bpm-minimise-all">&#8722; Minimise all</button>
 </div>
 
 <div class="page-footer">
