@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: Putting It Together – Bible Pointers on Marriage</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="bpm-site.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; padding: 0 16px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.6; font-weight: 400; color: #1c1c1e; background: #ffffff; }
+  @media (min-width: 640px) { body { padding: 0 32px; } }
+  @media (min-width: 900px) { body { max-width: 900px; margin: 0 auto; } }
+
+  .title-block { text-align: center; padding: 48px 0 32px; }
+  .series-name { font-size: 28px; font-weight: 700; letter-spacing: 0.06em; color: #1F3864; text-transform: uppercase; margin: 0 0 6px; line-height: 1.2; }
+  .series-sub { font-size: 16px; color: #555; margin: 0 0 4px; }
+  .nkjv-note { font-size: 12px; color: #888; margin: 0 0 20px; }
+  .title-rule { border: none; border-top: 2px solid #1F3864; margin: 0 auto 32px; width: 100%; }
+  h1 { font-size: 26px; font-weight: 700; color: #1F3864; margin: 0 0 8px; line-height: 1.3; }
+  .lesson-meta { font-size: 13px; color: #888; margin: 0; }
+
+  h2 { font-size: 22px; font-weight: 700; color: #1F3864; text-transform: uppercase; letter-spacing: 0.07em; margin: 32px 0 16px; }
+  h3 { font-size: 18px; font-weight: 700; color: #1F3864; margin: 24px 0 12px; }
+  p { margin-bottom: 16px; }
+  a { color: #1F3864; text-decoration: underline; }
+  a:hover, a:focus { color: #2c54a0; outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  .opening-section { background: #f2f2f2; border-radius: 4px; padding: 20px; margin: 24px 0; }
+  .opening-preamble { font-size: 14px; color: #555; margin-bottom: 14px; font-style: italic; }
+  .opening-question { font-size: 16px; font-weight: 700; color: #1F3864; margin: 0; }
+
+  .key-scripture { background: #fffbf0; border-left: 4px solid #d97706; padding: 18px 20px; margin: 24px 0; border-radius: 0 4px 4px 0; }
+  .scripture-text { font-style: italic; line-height: 1.8; margin: 0 0 8px; color: #1c1c1e; }
+  .scripture-note { font-size: 13px; font-style: italic; color: #666; margin: 0; }
+
+  .core-truth { background: #1F3864; border-left: 4px solid #d97706; padding: 20px; margin: 24px 0; border-radius: 0 4px 4px 0; }
+  .core-truth-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #d97706; margin: 0 0 10px; }
+  .core-truth-text { font-size: 16px; font-weight: 700; color: #ffffff; margin: 0; line-height: 1.5; }
+
+  .collapsible-btn { display: flex; align-items: center; justify-content: space-between; width: 100%; background: #1F3864; color: #ffffff; border: none; border-radius: 4px; padding: 14px 18px; cursor: pointer; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 700; text-align: left; margin: 24px 0 0; }
+  .collapsible-btn:hover { background: #2c54a0; }
+  .collapsible-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .chevron { font-size: 14px; transition: transform 0.25s ease; flex-shrink: 0; }
+  .collapsible-btn[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+  .collapsible-body { display: none; padding: 20px; border: 1px solid #cccccc; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 0; }
+  .collapsible-body.open { display: block; }
+
+  .note { border-left: 4px solid #d97706; background: #fffbf0; padding: 14px 18px; margin: 16px 0; border-radius: 0 4px 4px 0; }
+  .note-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #d97706; margin: 0 0 6px; }
+  .note p { margin-bottom: 0; }
+  .note p:not(:last-child) { margin-bottom: 10px; }
+
+  .depth { border-left: 4px solid #1F3864; background: #e8f0ff; padding: 14px 18px; margin: 16px 0; border-radius: 0 4px 4px 0; }
+  .depth-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #1F3864; margin: 0 0 6px; }
+  .depth p { margin-bottom: 0; }
+  .depth p:not(:last-child) { margin-bottom: 10px; }
+
+  .tip { border-left: 4px solid #276221; background: #f0fdf4; padding: 14px 18px; margin: 16px 0; border-radius: 0 4px 4px 0; }
+  .tip-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #276221; margin: 0 0 6px; }
+  .tip p { margin-bottom: 0; }
+  .tip p:not(:last-child) { margin-bottom: 10px; }
+
+  .caution { border-left: 4px solid #8b0000; background: #ffe8e8; padding: 14px 18px; margin: 16px 0; border-radius: 0 4px 4px 0; }
+  .caution-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8b0000; margin: 0 0 6px; }
+  .caution p { margin-bottom: 0; }
+  .caution p:not(:last-child) { margin-bottom: 10px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  th, td { border: 1px solid #cccccc; padding: 10px 14px; text-align: left; }
+  th { background: #1F3864; color: #ffffff; font-weight: 700; }
+  tr:nth-child(even) { background: #f2f2f2; }
+  tr:nth-child(odd) { background: #ffffff; }
+
+  .discovery-table td { vertical-align: top; }
+  .discovery-table td:first-child { font-weight: 700; width: 18%; }
+  .answer-cell { min-height: 60px; }
+  .answer-cell[contenteditable="true"] { cursor: text; border: 1px dotted #d97706; border-radius: 2px; padding: 8px; }
+  .answer-cell[contenteditable="true"]:focus { outline: 2px solid #d97706; background: #fffbf0; }
+
+  .discovery-controls { display: flex; gap: 10px; margin-top: 14px; justify-content: flex-end; }
+  .discovery-btn { padding: 8px 16px; font-size: 13px; font-weight: 700; border: none; border-radius: 4px; cursor: pointer; font-family: Arial, Helvetica, sans-serif; }
+  .btn-download { background: #1F3864; color: #ffffff; }
+  .btn-download:hover { background: #2c54a0; }
+  .btn-clear { background: #8b0000; color: #ffffff; }
+  .btn-clear:hover { background: #a50000; }
+  .btn-download:focus, .btn-clear:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  .revision-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 20px 0; }
+  .card-container { perspective: 1000px; height: 240px; }
+  .card { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; cursor: pointer; }
+  .card-container:hover .card, .card.flipped { transform: rotateY(180deg); }
+  .card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 16px; border-radius: 4px; text-align: center; }
+  .card-front { background: #1F3864; color: #ffffff; border: 2px solid #1F3864; }
+  .card-back { background: #e8e4dc; color: #1c1c1e; border: 2px solid #1F3864; transform: rotateY(180deg); }
+  .card-front h3 { font-size: 14px; margin: 0; color: #d97706; }
+  .card-front p { font-size: 20px; font-weight: 700; margin: 0; line-height: 1.4; }
+  .card-back .label { font-size: 11px; font-weight: 700; color: #f0b429; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .card-back p { font-size: 14px; margin: 0; line-height: 1.5; color: #1c1c1e; }
+
+  .series-close-banner { background: #1F3864; border-left: 4px solid #d97706; padding: 20px; margin: 32px 0; border-radius: 0 4px 4px 0; text-align: center; }
+  .series-close-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #d97706; margin: 0 0 12px; }
+  .series-close-text { font-size: 16px; font-weight: 700; color: #ffffff; margin: 0; line-height: 1.5; }
+
+  .floating-toc { position: fixed; bottom: 24px; right: 24px; z-index: 1000; }
+  .toc-btn { background: #1F3864; color: #ffffff; border: none; padding: 12px 16px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 13px; font-family: Arial, Helvetica, sans-serif; }
+  .toc-btn:hover { background: #2c54a0; }
+  .toc-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .toc-menu { display: none; position: absolute; bottom: 50px; right: 0; background: #ffffff; border: 2px solid #1F3864; border-radius: 4px; min-width: 200px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 1001; }
+  .toc-menu.open { display: block; }
+  .toc-menu a { display: block; padding: 10px 16px; color: #1F3864; text-decoration: none; border-bottom: 1px solid #cccccc; font-size: 13px; }
+  .toc-menu a:last-child { border-bottom: none; }
+  .toc-menu a:hover { background: #f2f2f2; }
+
+  .page-footer { font-size: 13px; color: #888; text-align: center; border-top: 1px solid #cccccc; padding: 24px 0 40px; margin-top: 32px; }
+  .footer-links { margin-top: 12px; }
+  .footer-links a { margin: 0 8px; color: #1F3864; text-decoration: underline; }
+
+  @media print {
+    .floating-toc { display: none; }
+    .collapsible-body { display: block !important; }
+    .collapsible-btn { background: #f2f2f2; color: #1c1c1e; cursor: default; }
+    .collapsible-btn .chevron { display: none; }
+  }
+</style>
+</head>
+<body data-bpm-page="l12">
+
+<div class="title-block">
+  <p class="series-name">Bible Pointers on Marriage</p>
+  <p class="series-sub">A twelve-lesson guide for The Well Shrewsbury</p>
+  <p class="nkjv-note">All scripture quotations are from the New King James Version (NKJV) unless otherwise indicated.</p>
+</div>
+<hr class="title-rule">
+
+<h1>Putting It Together</h1>
+<p class="lesson-meta">Lesson 12 of 12</p>
+
+<div class="bpm-audio-panel" role="region" aria-label="Audio controls">
+  <div class="bpm-audio-inner">
+    <button class="bpm-audio-btn bpm-btn-play-main" id="bpm-btn-play-main" type="button" aria-label="Play lesson">&#9654; Play Lesson</button>
+    <div class="bpm-speed-dropdown">
+      <button class="bpm-speed-toggle" type="button" id="bpm-speed-toggle" aria-expanded="false" aria-haspopup="listbox" aria-controls="bpm-speed-menu" aria-label="Playback speed"><span class="bpm-speed-value">1.0x</span><span class="bpm-speed-chevron" aria-hidden="true">&#9660;</span></button>
+      <ul class="bpm-speed-menu" id="bpm-speed-menu" role="listbox" hidden>
+        <li role="presentation"><button type="button" class="bpm-speed-option active" role="option" data-rate="1" aria-selected="true">1.0x</button></li>
+        <li role="presentation"><button type="button" class="bpm-speed-option" role="option" data-rate="1.25" aria-selected="false">1.25x</button></li>
+        <li role="presentation"><button type="button" class="bpm-speed-option" role="option" data-rate="1.5" aria-selected="false">1.5x</button></li>
+        <li role="presentation"><button type="button" class="bpm-speed-option" role="option" data-rate="1.75" aria-selected="false">1.75x</button></li>
+        <li role="presentation"><button type="button" class="bpm-speed-option" role="option" data-rate="2" aria-selected="false">2.0x</button></li>
+      </ul>
+    </div>
+    <button class="bpm-audio-btn bpm-btn-stop" id="bpm-btn-stop" type="button" aria-label="Stop playback" disabled>&#9632; Stop</button>
+    <span class="bpm-audio-progress" id="bpm-audio-progress" aria-live="polite"></span>
+  </div>
+</div>
+
+<!-- Section 1: Opening Question -->
+<div class="opening-section">
+  <p class="opening-preamble">Please begin by answering this question honestly in your own words.</p>
+  <p class="opening-question">Looking back at all twelve lessons, which one has shifted something in how you think about marriage — and why?</p>
+</div>
+
+<!-- Section 2: Key Scripture -->
+<div class="key-scripture">
+  <p class="scripture-text">"And now these three remain: faith, hope and love. But the greatest of these is love. Follow the way of love and eagerly desire gifts of the Spirit, especially the gift of prophecy."</p>
+  <p class="scripture-note">1 Corinthians 13:13–14:1 (adapted)</p>
+</div>
+
+<!-- Section 3: Core Truth -->
+<div class="core-truth">
+  <p class="core-truth-label">The central idea of this lesson</p>
+  <p class="core-truth-text">You have been taught a foundation. Now the question is not whether you understand it, but whether you will live it. Marriage is built one choice at a time.</p>
+</div>
+
+<!-- Section 4: Bible Teaching (Coaching Style) -->
+<button class="collapsible-btn" aria-expanded="false" aria-controls="bible-teaching">
+  Bible Teaching <span class="chevron">&#9660;</span>
+</button>
+<div class="collapsible-body" id="bible-teaching">
+  <p>This final lesson isn't a new teaching. It's an invitation to reflect on what you have learned and to ask yourself honest questions about what comes next. The foundation is laid. The real work is living it. That is just beginning.</p>
+
+  <h3>What You've Learned Across Three Movements</h3>
+  <p>These twelve lessons have moved you through three interconnected movements:</p>
+  <ol>
+    <li><strong>What God says marriage is</strong> (Lessons 1–2). Created by Him, reflecting His character, a covenant more binding than romance, displaying the love of Christ. If this foundation has shifted in your thinking, everything else becomes possible.</li>
+    <li><strong>Preparing yourself, or protecting your choice</strong> (Lessons 3–11). Whether you're single waiting, discerning a relationship, preparing for marriage, navigating roles and conflict, building intimacy, setting priorities or facing the reality of being unequally yoked. These lessons aren't separate from the foundation; they apply it.</li>
+    <li><strong>Living it daily</strong> (this lesson). Knowledge without action is head knowledge. Truth without obedience is information, not transformation.</li>
+  </ol>
+
+  <div class="depth">
+    <p class="depth-label">Going Deeper</p>
+    <p>Reflect: Which of these three movements have you been building into your life most naturally? Which one are you avoiding? Which one are you understanding without actually applying? Sometimes the hardest work isn't learning something new. It's admitting that you already know what to do, but you're choosing not to do it.</p>
+  </div>
+
+  <h3>Four Questions That Matter Now</h3>
+  <p><strong>1. What am I doing differently because of what I've learned?</strong></p>
+  <p>Not in theory, but in practice. Are you praying differently? Speaking differently? Treating your spouse or potential spouse differently? Making different choices about who you spend time with, what you say yes and no to, how you spend money and time? If nothing has changed, what's blocking the change?</p>
+
+  <p><strong>2. What feels true but hard?</strong></p>
+  <p>Some teaching lands easily because it agrees with what we already want to hear. Other teaching is true but costs us something. Submission, forgiveness, waiting, humility, honesty about how you've hurt your spouse, repentance. These are harder because obedience requires surrender rather than just understanding. Where are you stuck between knowing something is true and actually doing it?</p>
+
+  <div class="note">
+    <p class="note-label">Note</p>
+    <p>This is not a place for shame. This is a place for honesty. Every person in your group is wrestling with this. The question isn't "am I perfect?" The question is "am I moving?" Are you moving toward obedience, toward humility, toward your spouse, toward God?</p>
+  </div>
+
+  <p><strong>3. What would it look like to take the next step (not the final step, just the next one)?</strong></p>
+  <p>You don't have to transform your marriage overnight. You don't have to become the most mature believer or the most godly spouse instantly. But what is the one thing you could do this week? Something concrete, visible, measurable. That would be obedience to what you've learned. For some, that's a conversation. For others, it's silence (knowing when not to speak). For some, it's forgiveness. For others, it's asking for it. What's the next step, not the final step?</p>
+
+  <p><strong>4. Will you actually do it?</strong></p>
+  <p>This is the hardest question. Not "can you?" but "will you?" James 1:22 says: "Do not merely listen to the word. Do what it says." There is a difference between a person who hears the truth and a person who acts on it. The person who acts is the one who will see their life actually change. Which will you be?</p>
+
+  <div class="tip">
+    <p class="tip-label">Tip</p>
+    <p>If you're stuck between knowing and doing, here's something that often helps: tell someone else. Tell your spouse, your small group, your pastor, a trusted friend. Say out loud what you know to be true and what you're committing to do. Speaking it makes it real. Accountability makes it possible.</p>
+  </div>
+</div>
+
+<!-- Section 5: Key Discovery Questions -->
+<button class="collapsible-btn" aria-expanded="false" aria-controls="discovery-questions">
+  Key Discovery Questions <span class="chevron">&#9660;</span>
+</button>
+<div class="collapsible-body" id="discovery-questions">
+  <p>Work through these questions on your own before your group meets. Your answers are saved in your browser and can be downloaded as a text file.</p>
+  <table class="discovery-table">
+    <tr>
+      <th>Question</th>
+      <th>Your Answer</th>
+    </tr>
+    <tr>
+      <td>Of the twelve lessons, which one has been the most challenging to you, and what makes it hard? (Is it hard because it's new? Because it costs something? Because it challenges how you've been living?)</td>
+      <td class="answer-cell" contenteditable="true" data-key="bpm-l12-q1-answer"></td>
+    </tr>
+    <tr>
+      <td>What is one thing you are doing differently in your marriage (or your dating, or your singleness) because of what you've learned in this series? Be specific.</td>
+      <td class="answer-cell" contenteditable="true" data-key="bpm-l12-q2-answer"></td>
+    </tr>
+    <tr>
+      <td>What truth from these lessons feels most true to you but also most hard to actually live out? Why is that hard?</td>
+      <td class="answer-cell" contenteditable="true" data-key="bpm-l12-q3-answer"></td>
+    </tr>
+    <tr>
+      <td>What is the one next step you will take this week to put what you've learned into practice? (Not the final step — just the next one.)</td>
+      <td class="answer-cell" contenteditable="true" data-key="bpm-l12-q4-answer"></td>
+    </tr>
+    <tr>
+      <td>Who will you tell about this commitment, and when? (Telling someone else makes it real.)</td>
+      <td class="answer-cell" contenteditable="true" data-key="bpm-l12-q5-answer"></td>
+    </tr>
+  </table>
+  <div class="discovery-controls">
+    <button class="discovery-btn btn-download" id="btn-download-l12">⬇ Download Answers</button>
+    <button class="discovery-btn btn-clear" id="btn-clear-l12">🗑 Clear All</button>
+  </div>
+</div>
+
+<!-- Section 6: Group Discussion Questions -->
+<button class="collapsible-btn" aria-expanded="false" aria-controls="discussion-questions">
+  Group Discussion Questions <span class="chevron">&#9660;</span>
+</button>
+<div class="collapsible-body" id="discussion-questions">
+  <p>Designed for open conversation at any level of experience. These are coaching questions — the goal is for you to help each other think, not to give answers.</p>
+  <ol>
+    <li><strong>What surprised you most in going through this series?</strong> Was there something you didn't expect to learn, or something that landed differently than you thought it would?</li>
+    <li><strong>If you had to teach someone one thing from these twelve lessons, what would it be and why?</strong> Your answer says something about what's mattered most to you.</li>
+    <li><strong>What's the gap between knowing these truths and actually living them?</strong> What's in the way? Is it fear? Habit? Disagreement? Laziness? Shame? Doubt? Name it.</li>
+    <li><strong>How have you seen God work in your marriage or relationships as a result of engaging with this teaching?</strong> Or if you haven't seen that yet, what would it look like if God did work?</li>
+    <li><strong>What's your next step?</strong> Not eventually — this week. What will you do differently? Be specific enough that someone could ask you how you did, and you'd know what they meant.</li>
+  </ol>
+</div>
+
+<!-- Section 7: Application -->
+<button class="collapsible-btn" aria-expanded="false" aria-controls="application">
+  Application <span class="chevron">&#9660;</span>
+</button>
+<div class="collapsible-body" id="application">
+  <p>Practical ways to live out what this lesson teaches. This is about moving from "I know this" to "I am doing this."</p>
+  <table>
+    <tr>
+      <th style="width: 18%;">Context</th>
+      <th style="width: 82%;">How I Apply This</th>
+    </tr>
+    <tr>
+      <td><strong>I'm single.</strong></td>
+      <td>I will take seriously what these twelve lessons have taught me about marriage. About waiting, discerning, preparing and protecting myself. I won't rush into a relationship because I'm lonely. I won't ignore what I've learned about being unequally yoked. I will let God's Word shape my choices, even when it's hard. I will stay connected to people who will hold me accountable to what I know is true.</td>
+    </tr>
+    <tr>
+      <td><strong>I'm married.</strong></td>
+      <td>I will return to this learning regularly. Not just once, but as the seasons of my marriage change. I will use what I've learned to build on my foundation now, before pressure and conflict come. I will have the hard conversations about roles, money, sex, priorities, conflict and faith. I will pray together. I will protect the marriage against the threats I've learned about. I will choose my spouse over convenience, comfort or my own way.</td>
+    </tr>
+    <tr>
+      <td><strong>I know people in marriages.</strong></td>
+      <td>I will not judge those whose marriages look different from mine. I will celebrate the faithfulness I see in them. I will ask how their faith is being tested and how I can pray for them. I will recognise how God is working through their witness and obedience. I will offer support to those who are navigating challenges I've learned about in this series.</td>
+    </tr>
+  </table>
+</div>
+
+<!-- Section 8: Revision Cards — Series Synthesis -->
+<button class="collapsible-btn" aria-expanded="false" aria-controls="revision-cards">
+  Revision Cards <span class="chevron">&#9660;</span>
+</button>
+<div class="collapsible-body" id="revision-cards">
+  <p>These cards summarize the arc of the entire series. Flip each one to test your understanding and to find one statement you'll remember.</p>
+  <div class="revision-cards">
+    <div class="card-container">
+      <div class="card">
+        <div class="card-front">
+          <h3>Lesson 1</h3>
+          <p>Why Marriage Exists</p>
+        </div>
+        <div class="card-back">
+          <p class="label">Key Truth</p>
+          <p>Marriage was created by God to display His character and His love. It's not about you; it's about reflecting Him.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="card">
+        <div class="card-front">
+          <h3>Lessons 2–5</h3>
+          <p>Foundation and Preparation</p>
+        </div>
+        <div class="card-back">
+          <p class="label">Key Truth</p>
+          <p>Before "yes" there is waiting, discerning and preparing. One flesh is a covenant reality. Who you say yes to shapes your entire life.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="card">
+        <div class="card-front">
+          <h3>Lessons 6–12</h3>
+          <p>Inside the Marriage</p>
+        </div>
+        <div class="card-back">
+          <p class="label">Key Truth</p>
+          <p>Roles, conflict, intimacy, priorities and faithfulness are daily choices. Marriage is not a feeling; it is a covenant you keep.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="card">
+        <div class="card-front">
+          <h3>1 Corinthians 13</h3>
+          <p>The Love Standard</p>
+        </div>
+        <div class="card-back">
+          <p class="label">Key Truth</p>
+          <p>Love is patient, kind, does not envy, does not boast, keeps no record of wrongs, rejoices in truth. This is how marriage is meant to look.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="card">
+        <div class="card-front">
+          <h3>The Challenge</h3>
+          <p>Knowing Versus Doing</p>
+        </div>
+        <div class="card-back">
+          <p class="label">Key Truth</p>
+          <p>You now have knowledge. Knowledge without obedience is just information. The real work is living it out one day, one choice at a time.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="card">
+        <div class="card-front">
+          <h3>Your Part</h3>
+          <p>What's Next?</p>
+        </div>
+        <div class="card-back">
+          <p class="label">Your Commitment</p>
+          <p>I will take one step this week toward obedience. I will tell someone. I will choose my covenant — whether single, engaged, or married — and I will protect it with my choices.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Series Close Banner -->
+<div class="series-close-banner">
+  <p class="series-close-label">The End of the Series</p>
+  <p class="series-close-text">You have been taught well. Now go and live well. The God who created marriage is with you in yours.</p>
+</div>
+
+<!-- Floating TOC -->
+<div class="floating-toc">
+  <button class="toc-btn" id="toc-toggle" aria-expanded="false" aria-controls="toc-menu">☰ Contents</button>
+  <div class="toc-menu" id="toc-menu">
+    <a href="#" onclick="document.querySelector('.title-block').scrollIntoView({ behavior: 'smooth' }); return false;">Title</a>
+    <a href="#" onclick="document.querySelector('.opening-section').scrollIntoView({ behavior: 'smooth' }); return false;">Opening Question</a>
+    <a href="#" onclick="document.querySelector('.key-scripture').scrollIntoView({ behavior: 'smooth' }); return false;">Key Scripture</a>
+    <a href="#" onclick="document.querySelector('.core-truth').scrollIntoView({ behavior: 'smooth' }); return false;">Core Truth</a>
+    <a href="#" onclick="document.querySelector('#bible-teaching').parentElement.classList.add('open'); document.querySelector('#bible-teaching').scrollIntoView({ behavior: 'smooth' }); return false;">Bible Teaching</a>
+    <a href="#" onclick="document.querySelector('#discovery-questions').parentElement.classList.add('open'); document.querySelector('#discovery-questions').scrollIntoView({ behavior: 'smooth' }); return false;">Discovery Questions</a>
+    <a href="#" onclick="document.querySelector('#discussion-questions').parentElement.classList.add('open'); document.querySelector('#discussion-questions').scrollIntoView({ behavior: 'smooth' }); return false;">Discussion Questions</a>
+    <a href="#" onclick="document.querySelector('#application').parentElement.classList.add('open'); document.querySelector('#application').scrollIntoView({ behavior: 'smooth' }); return false;">Application</a>
+    <a href="#" onclick="document.querySelector('#revision-cards').parentElement.classList.add('open'); document.querySelector('#revision-cards').scrollIntoView({ behavior: 'smooth' }); return false;">Revision Cards</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="page-footer">
+  <p>Bible Pointers on Marriage &middot; The Well Shrewsbury</p>
+  <div class="footer-links">
+    <a href="index.html">← Back to lessons</a>
+  </div>
+</div>
+
+<script>
+// Collapsible sections
+document.querySelectorAll('.collapsible-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !isExpanded);
+    const bodyId = btn.getAttribute('aria-controls');
+    const body = document.getElementById(bodyId);
+    body.classList.toggle('open');
+  });
+});
+
+// TOC menu
+const tocToggle = document.getElementById('toc-toggle');
+const tocMenu = document.getElementById('toc-menu');
+tocToggle.addEventListener('click', () => {
+  const isExpanded = tocToggle.getAttribute('aria-expanded') === 'true';
+  tocToggle.setAttribute('aria-expanded', !isExpanded);
+  tocMenu.classList.toggle('open');
+});
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.floating-toc')) {
+    tocToggle.setAttribute('aria-expanded', 'false');
+    tocMenu.classList.remove('open');
+  }
+});
+
+// Discovery Questions — localStorage
+function loadAnswers() {
+  document.querySelectorAll('[data-key]').forEach(cell => {
+    const key = cell.getAttribute('data-key');
+    const saved = localStorage.getItem(key);
+    if (saved) {
+      cell.textContent = saved;
+    }
+  });
+}
+
+function saveAnswer(cell) {
+  const key = cell.getAttribute('data-key');
+  const value = cell.textContent;
+  localStorage.setItem(key, value);
+}
+
+document.querySelectorAll('[data-key]').forEach(cell => {
+  cell.addEventListener('blur', () => saveAnswer(cell));
+  cell.addEventListener('input', () => saveAnswer(cell));
+});
+
+// Download answers
+document.getElementById('btn-download-l12').addEventListener('click', () => {
+  let content = 'Bible Pointers on Marriage — Lesson 12: Putting It Together\nYour Answers & Commitments\n\n';
+  const questions = [
+    'Of the twelve lessons, which one has been the most challenging?',
+    'What is one thing you are doing differently because of this series?',
+    'What truth feels most true but most hard to live out?',
+    'What is the one next step you will take this week?',
+    'Who will you tell about this commitment?'
+  ];
+  questions.forEach((q, i) => {
+    const key = `bpm-l12-q${i + 1}-answer`;
+    const answer = localStorage.getItem(key) || '(No answer saved)';
+    content += `Q${i + 1}: ${q}\n${answer}\n\n`;
+  });
+  const blob = new Blob([content], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'bpm-l12-answers.txt';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+// Clear answers with confirmation
+document.getElementById('btn-clear-l12').addEventListener('click', () => {
+  if (confirm('Are you sure you want to clear all your answers? This cannot be undone.')) {
+    for (let i = 1; i <= 5; i++) {
+      const key = `bpm-l12-q${i}-answer`;
+      localStorage.removeItem(key);
+      const cell = document.querySelector(`[data-key="${key}"]`);
+      if (cell) cell.textContent = '';
+    }
+  }
+});
+
+// Load answers on page load
+loadAnswers();
+
+// Flip cards
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', function() {
+    this.classList.toggle('flipped');
+  });
+});
+</script>
+
+</body>
+</html>
