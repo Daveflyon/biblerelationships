@@ -8,131 +8,111 @@
 <link rel="stylesheet" href="bpm-site.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; }
-  body { padding: 0 16px; margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 400; line-height: 1.6; color: #1c1c1e; background: #fff; }
-
-  @media (width >= 640px) { body { padding: 0 32px; } }
-
-  @media (width >= 900px) { body { max-width: 900px; margin: 0 auto; } }
-
-  .title-block { padding: 48px 0 32px; text-align: center; }
-  .series-name { margin: 0 0 6px; font-size: 28px; font-weight: 700; line-height: 1.2; color: #1F3864; text-transform: uppercase; letter-spacing: 0.06em; }
-  .series-sub { margin: 0 0 4px; font-size: 16px; color: #555; }
-  .nkjv-note { margin: 0 0 20px; font-size: 12px; color: #888; }
-  .title-rule { width: 100%; margin: 0 auto 32px; border: none; border-top: 2px solid #1F3864; }
-  h1 { margin: 0 0 8px; font-size: 26px; font-weight: 700; line-height: 1.3; color: #1F3864; }
-  .lesson-meta { margin: 0; font-size: 13px; color: #888; }
-
-  h2 { margin: 32px 0 16px; font-size: 22px; font-weight: 700; color: #1F3864; text-transform: uppercase; letter-spacing: 0.07em; }
-  h3 { margin: 24px 0 12px; font-size: 18px; font-weight: 700; color: #1F3864; }
+  body { margin: 0; padding: 0 16px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.6; font-weight: 400; color: #1c1c1e; background: #ffffff; }
+  @media (min-width: 640px) { body { padding: 0 32px; } }
+  @media (min-width: 900px) { body { max-width: 900px; margin: 0 auto; } }
+  .title-block { text-align: center; padding: 40px 0 0; }
+  .series-name { font-size: 28px; font-weight: 700; letter-spacing: 0.06em; color: #1F3864; text-transform: uppercase; margin: 0 0 6px; line-height: 1.2; }
+  .series-part { font-size: 17px; font-style: italic; color: #1c1c1e; margin: 0 0 4px; }
+  .scripture-note-global { font-size: 12px; color: #777; margin: 0 0 10px; font-style: italic; }
+  .title-rule { border: none; border-top: 2px solid #1F3864; margin: 12px auto 20px; width: 100%; }
+  h1 { font-size: 22px; font-weight: 700; color: #1F3864; margin: 0 0 4px; line-height: 1.3; }
+  .lesson-meta { font-size: 13px; color: #555; margin: 0 0 24px; }
+  h2 { font-size: 22px; font-weight: 700; color: #1F3864; text-transform: uppercase; letter-spacing: 0.07em; margin-top: 40px; margin-bottom: 12px; }
+  h3 { font-size: 18px; font-weight: 700; color: #1F3864; margin-top: 28px; margin-bottom: 8px; border-bottom: 1px solid #cccccc; padding-bottom: 4px; }
   p { margin-bottom: 16px; }
   a { color: #1F3864; text-decoration: underline; }
   a:hover, a:focus { color: #2c54a0; outline: 2px solid #2c54a0; outline-offset: 2px; }
-
-  .opening-section { padding: 20px; margin: 24px 0; background: #f2f2f2; border-radius: 4px; }
-  .opening-preamble { margin-bottom: 14px; font-size: 14px; font-style: italic; color: #555; }
-  .opening-question { margin: 0; font-size: 16px; font-weight: 700; color: #1F3864; }
-
-  .key-scripture { padding: 18px 20px; margin: 24px 0; background: #fffbf0; border-left: 4px solid #d97706; border-radius: 0 4px 4px 0; }
-  .scripture-text { margin: 0 0 8px; font-style: italic; line-height: 1.8; color: #1c1c1e; }
-  .scripture-note { margin: 0; font-size: 13px; font-style: italic; color: #666; }
-
-  .core-truth { padding: 20px; margin: 24px 0; background: #1F3864; border-left: 4px solid #d97706; border-radius: 0 4px 4px 0; }
-  .core-truth-label { margin: 0 0 10px; font-size: 11px; font-weight: 700; color: #d97706; text-transform: uppercase; letter-spacing: 0.1em; }
-  .core-truth-text { margin: 0; font-size: 16px; font-weight: 700; line-height: 1.5; color: #fff; }
-
-  .collapsible-btn { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 14px 18px; margin: 24px 0 0; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 700; color: #fff; text-align: left; cursor: pointer; background: #1F3864; border: none; border-radius: 4px; }
-  .collapsible-btn:hover { background: #2c54a0; }
-  .collapsible-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
-  .chevron { flex-shrink: 0; font-size: 14px; transition: transform 0.25s ease; }
-  .collapsible-btn[aria-expanded="true"] .chevron { transform: rotate(180deg); }
-  .collapsible-body { display: none; padding: 20px; margin-bottom: 0; border: 1px solid #ccc; border-top: none; border-radius: 0 0 4px 4px; }
-  .collapsible-body.open { display: block; }
-
-  .note { padding: 14px 18px; margin: 16px 0; background: #fffbf0; border-left: 4px solid #d97706; border-radius: 0 4px 4px 0; }
-  .note-label { margin: 0 0 6px; font-size: 11px; font-weight: 700; color: #d97706; text-transform: uppercase; letter-spacing: 0.1em; }
-  .note p { margin-bottom: 0; }
-  .note p:not(:last-child) { margin-bottom: 10px; }
-
-  .depth { padding: 14px 18px; margin: 16px 0; background: #e8f0ff; border-left: 4px solid #1F3864; border-radius: 0 4px 4px 0; }
-  .depth-label { margin: 0 0 6px; font-size: 11px; font-weight: 700; color: #1F3864; text-transform: uppercase; letter-spacing: 0.1em; }
-  .depth p { margin-bottom: 0; }
-  .depth p:not(:last-child) { margin-bottom: 10px; }
-
-  .tip { padding: 14px 18px; margin: 16px 0; background: #f0fdf4; border-left: 4px solid #276221; border-radius: 0 4px 4px 0; }
-  .tip-label { margin: 0 0 6px; font-size: 11px; font-weight: 700; color: #276221; text-transform: uppercase; letter-spacing: 0.1em; }
-  .tip p { margin-bottom: 0; }
-  .tip p:not(:last-child) { margin-bottom: 10px; }
-
-  .caution { padding: 14px 18px; margin: 16px 0; background: #ffe8e8; border-left: 4px solid #8b0000; border-radius: 0 4px 4px 0; }
-  .caution-label { margin: 0 0 6px; font-size: 11px; font-weight: 700; color: #8b0000; text-transform: uppercase; letter-spacing: 0.1em; }
-  .caution p { margin-bottom: 0; }
-  .caution p:not(:last-child) { margin-bottom: 10px; }
-
-  table { width: 100%; margin: 16px 0; border-collapse: collapse; }
-  th, td { padding: 10px 14px; text-align: left; border: 1px solid #ccc; }
-  th { font-weight: 700; color: #fff; background: #1F3864; }
-  tr:nth-child(even) { background: #f2f2f2; }
-  tr:nth-child(odd) { background: #fff; }
-
-  .discovery-table td { vertical-align: top; }
-  .discovery-table td:first-child { width: 18%; font-weight: 700; }
-  .answer-cell { min-height: 60px; }
-  .answer-cell[contenteditable="true"] { padding: 8px; cursor: text; border: 1px dotted #d97706; border-radius: 2px; }
-  .answer-cell[contenteditable="true"]:focus { background: #fffbf0; outline: 2px solid #d97706; }
-
-  .discovery-controls { display: flex; gap: 10px; justify-content: flex-end; margin-top: 14px; }
-  .discovery-btn { padding: 8px 16px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; border: none; border-radius: 4px; }
-  .btn-download { color: #fff; background: #1F3864; }
-  .btn-download:hover { background: #2c54a0; }
-  .btn-clear { color: #fff; background: #8b0000; }
-  .btn-clear:hover { background: #a50000; }
-  .btn-download:focus, .btn-clear:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
-
-  .revision-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 20px 0; }
-  .card-container { height: 240px; perspective: 1000px; }
-  .card { position: relative; width: 100%; height: 100%; cursor: pointer; transition: transform 0.6s; transform-style: preserve-3d; }
-  .card-container:hover .card, .card.flipped { transform: rotateY(180deg); }
-  .card-front, .card-back { position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 16px; text-align: center; border-radius: 4px; backface-visibility: hidden; }
-  .card-front { color: #fff; background: #1F3864; border: 2px solid #1F3864; }
-  .card-back { color: #1c1c1e; background: #e8e4dc; border: 2px solid #1F3864; transform: rotateY(180deg); }
-  .card-front h3 { margin: 0; font-size: 14px; color: #d97706; }
-  .card-front p { margin: 0; font-size: 24px; font-weight: 700; line-height: 1.4; }
-  .card-back .label { margin-bottom: 8px; font-size: 11px; font-weight: 700; color: #f0b429; text-transform: uppercase; letter-spacing: 0.1em; }
-  .card-back p { margin: 0; font-size: 14px; line-height: 1.5; color: #1c1c1e; }
-
-  .floating-toc { position: fixed; right: 24px; bottom: 24px; z-index: 1000; }
-  .toc-btn { padding: 12px 16px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 700; color: #fff; cursor: pointer; background: #1F3864; border: none; border-radius: 4px; }
+  .opening-box { border: 2px solid #1F3864; border-radius: 4px; padding: 20px 24px; background: #f2f2f2; margin: 16px 0 24px; text-align: left; }
+  .opening-box p:last-child { margin-bottom: 0; }
+  .question-text { font-size: 17px; font-weight: 700; color: #1F3864; margin: 12px 0 0; }
+  .core-truth-box { background: #1F3864; border-radius: 4px; padding: 24px 28px; margin: 24px 0; text-align: left; }
+  .core-truth-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #f0b429; margin: 0 0 12px; }
+  .core-truth-statement { font-size: 19px; font-weight: 700; color: #ffffff; line-height: 1.45; margin: 0; }
+  .scripture-block { border-left: 4px solid #1F3864; background: #f2f2f2; padding: 16px 20px; margin: 20px 0; border-radius: 0 4px 4px 0; }
+  .scripture-ref { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: #1F3864; text-transform: uppercase; margin: 0 0 8px; }
+  .scripture-text { font-size: 15px; line-height: 1.7; color: #1c1c1e; margin: 0; font-style: italic; }
+  .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 4px 4px 0; }
+  .callout-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 8px; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout.note    { border-left: 4px solid #d97706; background: #fffbf0; }
+  .callout.note    .callout-label { color: #d97706; }
+  .callout.depth   { border-left: 4px solid #1F3864; background: #eef2f8; }
+  .callout.depth   .callout-label { color: #1F3864; }
+  .callout.tip     { border-left: 4px solid #276221; background: #f0f7f0; }
+  .callout.tip     .callout-label { color: #276221; }
+  .callout.caution { border-left: 4px solid #8b0000; background: #fce8e8; }
+  .callout.caution .callout-label { color: #8b0000; }
+  .progression-link { border-left: 4px solid #cccccc; background: #f9f9f7; padding: 12px 16px; margin: 0 0 24px; font-size: 14px; border-radius: 0 4px 4px 0; }
+  .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead tr { background: #1F3864; color: #ffffff; }
+  thead th { padding: 10px 14px; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; border: 1px solid #cccccc; text-align: left; }
+  tbody td { padding: 10px 14px; border: 1px solid #cccccc; vertical-align: top; }
+  tbody tr:nth-child(odd)  { background: #ffffff; }
+  tbody tr:nth-child(even) { background: #f2f2f2; }
+  td.label-cell { background: #f2f2f2; font-weight: 700; width: 18%; vertical-align: top; }
+  .fillable { min-height: 60px; outline: none; background: #fffbf0; border-radius: 2px; padding: 4px 6px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; color: #1c1c1e; display: block; width: 100%; box-sizing: border-box; transition: background 0.15s; }
+  .fillable:focus { background: #fff8e1; outline: 2px solid #d97706; outline-offset: 0; }
+  .fillable:empty::before { content: attr(data-placeholder); color: #aaa; pointer-events: none; }
+  .answers-toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 12px 0 4px; }
+  .answers-toolbar button { background: #1F3864; color: #ffffff; border: none; border-radius: 4px; padding: 7px 14px; font-size: 13px; font-weight: 700; font-family: Arial, Helvetica, sans-serif; cursor: pointer; }
+  .answers-toolbar button:hover { background: #2c54a0; }
+  .answers-toolbar button:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .answers-toolbar button.clear-btn { background: #ffffff; color: #8b0000; border: 1px solid #8b0000; }
+  .answers-toolbar button.clear-btn:hover { background: #fce8e8; }
+  .answers-note { font-size: 12px; color: #777; margin: 0 0 16px; }
+  .section-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; background: none; border: none; border-bottom: 2px solid #1F3864; padding: 8px 0; cursor: pointer; font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: 700; color: #1F3864; text-transform: uppercase; letter-spacing: 0.07em; margin-top: 40px; text-align: left; }
+  .section-toggle:hover { color: #2c54a0; border-bottom-color: #2c54a0; }
+  .section-toggle:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .section-chevron { font-size: 15px; transition: transform 0.25s ease; flex-shrink: 0; margin-left: 12px; font-weight: 400; }
+  .section-toggle[aria-expanded="true"] .section-chevron { transform: rotate(180deg); }
+  .section-body { display: none; }
+  .section-body.open { display: block; }
+  .flashcard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin: 16px 0 24px; }
+  .flashcard { height: 180px; perspective: 1000px; cursor: pointer; }
+  .flashcard-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.45s ease; border-radius: 6px; }
+  .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+  .flashcard-front, .flashcard-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 6px; padding: 18px; display: flex; flex-direction: column; justify-content: center; }
+  .flashcard-front { background: #ffffff; border: 2px solid #1F3864; }
+  .flashcard-back  { background: #1F3864; transform: rotateY(180deg); }
+  .fc-prompt { font-size: 14px; font-weight: 700; color: #1F3864; margin: 0 0 8px; line-height: 1.4; }
+  .fc-ref { font-size: 12px; color: #60a5fa; font-weight: 700; margin: 0; letter-spacing: 0.05em; }
+  .fc-verse { font-size: 13px; color: #e8e4dc; font-style: italic; margin: 0 0 8px; line-height: 1.5; }
+  .fc-ref-back { font-size: 12px; color: #f0b429; font-weight: 700; margin: 0; letter-spacing: 0.04em; }
+  .fc-def { font-size: 13px; color: #e8e4dc; margin: 0; line-height: 1.5; }
+  .flashcard-hint { font-size: 12px; color: #888; text-align: center; margin-bottom: 8px; }
+  .back-link { font-size: 13px; margin-bottom: 8px; display: block; padding-top: 24px; }
+  .page-footer { font-size: 13px; color: #888; text-align: center; border-top: 1px solid #cccccc; padding: 24px 0 40px; margin-top: 16px; }
+  .series-close { background: #1F3864; border-radius: 4px; padding: 24px 28px; margin: 40px 0 24px; text-align: left; }
+  .series-close-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #f0b429; margin: 0 0 10px; }
+  .series-close-text { font-size: 17px; color: #ffffff; line-height: 1.5; margin: 0 0 16px; }
+  .series-close a { color: #f0b429; }
+  .toc-container { position: fixed; bottom: 24px; right: 24px; z-index: 1000; }
+  .toc-btn { background: #1F3864; color: #ffffff; border: none; border-radius: 4px; padding: 10px 16px; font-size: 13px; font-weight: 700; font-family: Arial, Helvetica, sans-serif; cursor: pointer; display: block; width: 100%; text-align: left; }
   .toc-btn:hover { background: #2c54a0; }
   .toc-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
-  .toc-menu { position: absolute; right: 0; bottom: 50px; z-index: 1001; display: none; min-width: 200px; background: #fff; border: 2px solid #1F3864; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  .toc-menu { display: none; background: #1F3864; border-radius: 4px 4px 0 0; padding: 8px 0; margin-bottom: 4px; max-height: 60vh; overflow-y: auto; min-width: 220px; }
   .toc-menu.open { display: block; }
-  .toc-menu a { display: block; padding: 10px 16px; font-size: 13px; color: #1F3864; text-decoration: none; border-bottom: 1px solid #ccc; }
-  .toc-menu a:last-child { border-bottom: none; }
-  .toc-menu a:hover { background: #f2f2f2; }
-
-  .page-footer { padding: 24px 0 40px; margin-top: 32px; font-size: 13px; color: #888; text-align: center; border-top: 1px solid #ccc; }
-  .footer-links { margin-top: 12px; }
-  .footer-links a { margin: 0 8px; color: #1F3864; text-decoration: underline; }
-
-  @media print {
-    .floating-toc { display: none; }
-    .collapsible-body { display: block !important; }
-    .collapsible-btn { color: #1c1c1e; cursor: default; background: #f2f2f2; }
-    .collapsible-btn .chevron { display: none; }
-  }
+  .toc-menu a { display: block; padding: 8px 16px; color: #ffffff; text-decoration: none; font-size: 13px; }
+  .toc-menu a:hover { background: #2c54a0; }
+  .toc-menu a:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  @media print { .toc-container { display: none; } .section-body { display: block !important; } body { color: #1c1c1e; -webkit-print-color-adjust: exact; print-color-adjust: exact; } a { color: #1c1c1e; } .flashcard-back { background: #f2f2f2; } .fc-verse, .fc-def { color: #1c1c1e; } }
 </style>
 </head>
 <body data-bpm-page="lesson">
 
+<a class="back-link" href="index.html">&#8592; Back to all lessons</a>
 <div class="title-block">
   <p class="series-name">Bible Pointers on Marriage</p>
-  <p class="series-sub">A twelve-lesson guide for The Well Shrewsbury</p>
-  <p class="nkjv-note">All scripture quotations are from the New King James Version (NKJV) unless otherwise indicated.</p>
+  <p class="series-part">A twelve-lesson guide for The Well Shrewsbury</p>
+  <p class="scripture-note-global">All scripture quotations are from the New King James Version (NKJV) unless otherwise indicated.</p>
 </div>
 <hr class="title-rule">
-
-<h1>Being Unequally Yoked</h1>
-<p class="lesson-meta">Lesson 11 of 12</p>
+<div class="title-block" style="padding-top:0;">
+  <h1>Being Unequally Yoked – Bible Pointers on Marriage</h1>
+  <p class="lesson-meta">Lesson 11 of 12</p>
+</div>
 
 <div class="bpm-audio-panel" role="region" aria-label="Audio controls">
   <div class="bpm-audio-inner">
@@ -152,35 +132,42 @@
   </div>
 </div>
 
-<!-- Section 1: Opening Question -->
-<div class="opening-section">
-  <p class="opening-preamble">Please begin by answering this question honestly in your own words.</p>
-  <p class="opening-question">If someone told you today that the person they loved and wanted to marry didn't believe in Jesus, what would you want them to understand about that decision?</p>
-</div>
+<section id="opening-question">
+  <h2>Opening Question</h2>
+  <div class="opening-box">
+    <p>Please begin by answering this question honestly in your own words.</p>
+    <p class="question-text">If someone told you today that the person they loved and wanted to marry didn't believe in Jesus, what would you want them to understand about that decision?</p>
+  </div>
+</section>
 
-<!-- Section 2: Key Scripture -->
-<div class="key-scripture">
-  <p class="scripture-text">"Do not be unequally yoked together with unbelievers. For what fellowship has righteousness with lawlessness? And what communion has light with darkness? And what accord has Christ with Belial? Or what part has a believer with an unbeliever? And what agreement has the temple of God with idols? For you are the temple of the living God. As God has said: 'I will dwell in them and walk among them. I will be their God, and they shall be My people.' Therefore 'Come out from among them and be separate, says the Lord. Do not touch what is unclean, and I will receive you.'"</p>
-  <p class="scripture-note">2 Corinthians 6:14–17 NKJV</p>
-</div>
+<section id="key-scripture">
+  <h2>Key Scripture</h2>
+  <div class="scripture-block">
+    <p class="scripture-ref">2 Corinthians 6:14–17</p>
+    <p class="scripture-text">"Do not be unequally yoked together with unbelievers. For what fellowship has righteousness with lawlessness? And what communion has light with darkness? And what accord has Christ with Belial? Or what part has a believer with an unbeliever? And what agreement has the temple of God with idols? For you are the temple of the living God. As God has said: 'I will dwell in them and walk among them. I will be their God, and they shall be My people.' Therefore 'Come out from among them and be separate, says the Lord. Do not touch what is unclean, and I will receive you.'"</p>
+  </div>
+</section>
 
-<!-- Section 3: Core Truth -->
-<div class="core-truth">
-  <p class="core-truth-label">The central idea of this lesson</p>
-  <p class="core-truth-text">Marrying someone who doesn't share your faith is a vow made in two different directions at once. For those already there: God's grace covers you. For those considering it: God's Word clearly warns you.</p>
-</div>
+<section id="core-truth">
+  <h2>Core Truth</h2>
+  <div class="core-truth-box">
+    <p class="core-truth-label">The central idea of this lesson</p>
+    <p class="core-truth-statement">Marrying someone who doesn't share your faith is a vow made in two different directions at once. For those already there: God's grace covers you. For those considering it: God's Word clearly warns you.</p>
+  </div>
+</section>
 
-<!-- Section 4: Bible Teaching (Collapsible) -->
 <section id="bible-teaching">
-<button class="collapsible-btn" aria-expanded="false" aria-controls="bible-teaching-body">
-  Bible Teaching <span class="chevron">&#9660;</span>
-</button>
-<div class="collapsible-body" id="bible-teaching-body">
+  <button class="section-toggle" aria-expanded="false" aria-controls="bible-teaching-body" id="bible-teaching-btn">
+    Bible Teaching <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="bible-teaching-body">
+
   <h3>What "Unequally Yoked" Actually Means</h3>
   <p>The word "yoked" comes from the image of two oxen harnessed together to pull a plough. They move as one. Paul uses this picture to describe marriage. A two-person team pulls in the same direction. He warns against joining yourself to someone pulling in a different direction spiritually.</p>
   <p>The word "unequal" doesn't mean unequal in intelligence, education, social status, or personality. It means unequal in the one thing that shapes every other direction: your answer to who God is and whether you have surrendered your life to Him.</p>
-  <div class="note">
-    <p class="note-label">Note</p>
+
+  <div class="callout note">
+    <p class="callout-label">Note</p>
     <p>Amos 3:3 puts it plainly: "Can two walk together, unless they are agreed?" Marriage is walking together through decades — life decisions, how to raise children, what you believe is true and worth living for, how you spend money and time, what you pray toward. These are not surface-level differences. They are the foundation.</p>
   </div>
 
@@ -188,8 +175,9 @@
   <p>When one spouse believes in Jesus and the other does not, you are not just different in opinion. You are different in direction.</p>
   <p>The believer's compass points toward obedience to Christ, building a home on Scripture, raising children in faith, making decisions in light of eternity and praying together toward God's kingdom. The unbeliever's compass, however sincere and good-hearted they may be, points elsewhere. It points toward security, comfort, reputation or their own understanding of what a good life looks like.</p>
   <p>These directions are not neutral. Over time, they create tension in every major decision: How do you raise your children spiritually? What happens when faith requires sacrifice the other spouse doesn't understand? When you face suffering, where does each of you turn? When one spouse wants to serve God and the other wants to protect the family's comfort, what wins?</p>
-  <div class="depth">
-    <p class="depth-label">Going Deeper</p>
+
+  <div class="callout depth">
+    <p class="callout-label">Going Deeper</p>
     <p>Paul doesn't forbid these marriages. He warns against entering them. The reason is not that God doesn't love unbelievers; He does, passionately. The reason is that marriage is a covenant that runs deep. When the foundation is divided, the house will strain under its own weight. God protects you by speaking plainly before you say "I do" rather than abandoning you if you do.</p>
   </div>
 
@@ -197,308 +185,184 @@
   <p>If you married before you became a Christian, or if you chose to marry an unbeliever despite this warning, you are not outside God's grace. The Bible addresses this directly.</p>
   <p>In 1 Corinthians 7:12–16, Paul writes to Christians married to unbelievers: "If any brother has a wife who does not believe... let him not divorce her... For the unbelieving husband is sanctified by the wife, and the unbelieving wife is sanctified by the husband... But God has called us to peace." The word "sanctified" here does not mean the unbeliever is saved by the believer's faith. Only Christ saves. But it means your marriage covenant, your home, your faithfulness and your belief are a covering over your household.</p>
   <p>Think of it this way: when Levi paid tithe to Melchizedek, he had not yet been born. Yet Hebrews 7:10 says he paid tithe "in the loins of Abraham" through his lineage and his place in Abraham's covenant. In the same way, when you believe in Christ, your marriage is not outside His covenant. Your faith is not wasted in an unequally yoked home. Your prayers, your obedience, your integrity and your love are not lost. They are a covering; not a replacement for your spouse's own choice to believe, but a reality that changes what your marriage is.</p>
-  <div class="tip">
-    <p class="tip-label">Tip for Those in This Marriage</p>
+
+  <div class="callout tip">
+    <p class="callout-label">Practical Tip</p>
     <p>Peter speaks to this: "Wives, likewise, be submissive to your own husbands, that even if some do not obey the word, they, without a word, may be won by the conduct of the wives, when they observe your chaste conduct accompanied by fear [of God]" (1 Peter 3:1–2). Your holiness matters. Your faithfulness to Christ despite the cost matters. You are not wasting your obedience. God sees it, honours it and uses it in ways you may not see until eternity.</p>
   </div>
+
   <p>This is not a call to stay silent about your faith or to pretend your marriage doesn't cost you anything. It is a call to live with integrity, kindness and hope. God's promise covers your home and your household. Your believing changes the spiritual reality of your marriage, even if your spouse never chooses to believe.</p>
-</div>
+
+  </div>
 </section>
 
-<!-- Section 5: Key Discovery Questions -->
 <section id="discovery-questions">
-<button class="collapsible-btn" aria-expanded="false" aria-controls="discovery-questions-body">
-  Key Discovery Questions <span class="chevron">&#9660;</span>
-</button>
-<div class="collapsible-body" id="discovery-questions-body">
-  <p>Work through these questions on your own before your group meets. Your answers are saved in your browser and can be downloaded as a text file.</p>
-  <table class="discovery-table">
-    <tr>
-      <th>Question</th>
-      <th>Your Answer</th>
-    </tr>
-    <tr>
-      <td>In what ways does 2 Corinthians 6:14–17 speak both a warning and a boundary? What is God protecting you from, and why?</td>
-      <td class="answer-cell" contenteditable="true" data-key="bpm-l11-q1-answer"></td>
-    </tr>
-    <tr>
-      <td>If you are already married to someone who doesn't believe, or if you know someone in that situation, how does the idea of "sanctification" and "covering" through covenant change how you think about that marriage?</td>
-      <td class="answer-cell" contenteditable="true" data-key="bpm-l11-q2-answer"></td>
-    </tr>
-    <tr>
-      <td>What are the hidden costs of marrying an unbeliever that might not be obvious when you're in love? What does Paul mean by "unequally yoked"?</td>
-      <td class="answer-cell" contenteditable="true" data-key="bpm-l11-q3-answer"></td>
-    </tr>
-    <tr>
-      <td>If someone you love told you they wanted to marry an unbeliever, what would you want them to understand before they said "I do"?</td>
-      <td class="answer-cell" contenteditable="true" data-key="bpm-l11-q4-answer"></td>
-    </tr>
-    <tr>
-      <td>How does the truth that your faith covers your household change the way you pray for, speak about, or live in an unequally yoked marriage?</td>
-      <td class="answer-cell" contenteditable="true" data-key="bpm-l11-q5-answer"></td>
-    </tr>
-  </table>
-  <div class="discovery-controls">
-    <button class="discovery-btn btn-download" id="btn-download-l11">⬇ Download Answers</button>
-    <button class="discovery-btn btn-clear" id="btn-clear-l11">🗑 Clear All</button>
+  <button class="section-toggle" aria-expanded="false" aria-controls="discovery-questions-body" id="discovery-questions-btn">
+    Key Discovery Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="discovery-questions-body">
+  <p>Work through these on your own before your group meets. Your answers are saved automatically in your browser.</p>
+  <div class="answers-toolbar">
+    <button id="download-btn">&#8595; Download my answers</button>
+    <button class="clear-btn" id="clear-btn">Clear all answers</button>
   </div>
-</div>
+  <p class="answers-note">Answers save to your browser on this device. If viewing inside Google Sites, open the file directly for reliable saving.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:38%;">Question</th><th style="width:31%;">My Answer</th><th style="width:31%;">Group Discussion Notes</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>In what ways does 2 Corinthians 6:14–17 speak both a warning and a boundary? What is God protecting you from, and why?</td>
+          <td><div class="fillable" contenteditable="true" data-key="bpm-l11-q1-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="bpm-l11-q1-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>If you are already married to someone who doesn't believe, or if you know someone in that situation, how does the idea of "sanctification" and "covering" through covenant change how you think about that marriage?</td>
+          <td><div class="fillable" contenteditable="true" data-key="bpm-l11-q2-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="bpm-l11-q2-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>What are the hidden costs of marrying an unbeliever that might not be obvious when you're in love? What does Paul mean by "unequally yoked"?</td>
+          <td><div class="fillable" contenteditable="true" data-key="bpm-l11-q3-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="bpm-l11-q3-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>If someone you love told you they wanted to marry an unbeliever, what would you want them to understand before they said "I do"?</td>
+          <td><div class="fillable" contenteditable="true" data-key="bpm-l11-q4-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="bpm-l11-q4-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>How does the truth that your faith covers your household change the way you pray for, speak about, or live in an unequally yoked marriage?</td>
+          <td><div class="fillable" contenteditable="true" data-key="bpm-l11-q5-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="bpm-l11-q5-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
 </section>
 
-<!-- Section 6: Group Discussion Questions -->
-<section id="discussion-questions">
-<button class="collapsible-btn" aria-expanded="false" aria-controls="discussion-questions-body">
-  Group Discussion Questions <span class="chevron">&#9660;</span>
-</button>
-<div class="collapsible-body" id="discussion-questions-body">
-  <p>Designed for open conversation at any level of experience.</p>
+<section id="group-discussion">
+  <button class="section-toggle" aria-expanded="false" aria-controls="group-discussion-body" id="group-discussion-btn">
+    Group Discussion Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="group-discussion-body">
+  <p>Open questions for any level of experience. No right or wrong answers.</p>
   <ol>
-    <li><strong>For those considering marriage to an unbeliever:</strong> What makes this choice attractive despite the Bible's warning? What would have to happen for you to change your mind?</li>
-    <li><strong>For those already married to an unbeliever:</strong> What has been the hardest part of walking in two different directions? How has your faith been tested, and how have you grown through it?</li>
-    <li>How does the image of being "yoked" help you understand why this warning exists? What breaks down when two people are pulling in different directions through life?</li>
-    <li>If your faith is real, shouldn't it be strong enough to "win over" an unbelieving spouse? Where does that thinking break down, and what does it miss about what marriage actually is?</li>
-    <li>What would it look like to be a faithful witness to your spouse without being preachy or condescending? How do you live out your faith in a way that honours the marriage?</li>
+    <li style="margin-bottom:16px;">For those considering marriage to an unbeliever: What makes this choice attractive despite the Bible's warning? What would have to happen for you to change your mind?</li>
+    <li style="margin-bottom:16px;">For those already married to an unbeliever: What has been the hardest part of walking in two different directions? How has your faith been tested, and how have you grown through it?</li>
+    <li style="margin-bottom:16px;">How does the image of being "yoked" help you understand why this warning exists? What breaks down when two people are pulling in different directions through life?</li>
+    <li style="margin-bottom:16px;">If your faith is real, shouldn't it be strong enough to "win over" an unbelieving spouse? Where does that thinking break down, and what does it miss about what marriage actually is?</li>
+    <li style="margin-bottom:16px;">What would it look like to be a faithful witness to your spouse without being preachy or condescending? How do you live out your faith in a way that honours the marriage?</li>
   </ol>
-</div>
+  </div>
 </section>
 
-<!-- Section 7: Application -->
 <section id="application">
-<button class="collapsible-btn" aria-expanded="false" aria-controls="application-body">
-  Application <span class="chevron">&#9660;</span>
-</button>
-<div class="collapsible-body" id="application-body">
-  <p>Practical ways to live out what this lesson teaches, addressed to different people in different situations.</p>
-  <table>
-    <tr>
-      <th style="width: 18%;">Context</th>
-      <th style="width: 82%;">How I Apply This</th>
-    </tr>
-    <tr>
-      <td><strong>I'm single and considering marrying someone who doesn't believe.</strong></td>
-      <td>I will take Paul's warning seriously. I will ask myself: Am I hoping they will change? Am I telling myself that love is enough? Am I willing to sacrifice my faith or compromise my discipleship for this relationship? I will speak honestly with my church leaders before saying "yes" to this proposal. I will let God's Word speak louder than my heart's desire right now.</td>
-    </tr>
-    <tr>
-      <td><strong>I'm married to someone who doesn't believe.</strong></td>
-      <td>I will stop apologising for being a believer. I will live my faith with integrity and consistency. Not in a harsh or condemning way, but genuinely. I will pray for my spouse, knowing that my prayer and my faithfulness create a spiritual covering over my home. I will look for ways to live out my faith that strengthen rather than undermine my marriage. I will be honest about the cost and the beauty of what this means.</td>
-    </tr>
-    <tr>
-      <td><strong>I know someone in an unequally yoked marriage.</strong></td>
-      <td>I will not judge them or assume their marriage is cursed. I will support their faithfulness. I will ask them how their faith is being tested and how I can pray for them. I will celebrate how God is working through their witness and their obedience, knowing that their belief does cover their household in ways they may not see until heaven.</td>
-    </tr>
-  </table>
-</div>
+  <button class="section-toggle" aria-expanded="false" aria-controls="application-body" id="application-btn">
+    Application <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="application-body">
+  <p>This lesson applies to three distinct situations. Choose what fits your life right now.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:18%;">Context</th><th>How I Apply This</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="label-cell">I'm single and considering marrying someone who doesn't believe.</td>
+          <td>I will take Paul's warning seriously. I will ask myself: Am I hoping they will change? Am I telling myself that love is enough? Am I willing to sacrifice my faith or compromise my discipleship for this relationship? I will speak honestly with my church leaders before saying "yes" to this proposal. I will let God's Word speak louder than my heart's desire right now.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">I'm married to someone who doesn't believe.</td>
+          <td>I will stop apologising for being a believer. I will live my faith with integrity and consistency. Not in a harsh or condemning way, but genuinely. I will pray for my spouse, knowing that my prayer and my faithfulness create a spiritual covering over my home. I will look for ways to live out my faith that strengthen rather than undermine my marriage. I will be honest about the cost and the beauty of what this means.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">I know someone in an unequally yoked marriage.</td>
+          <td>I will not judge them or assume their marriage is cursed. I will support their faithfulness. I will ask them how their faith is being tested and how I can pray for them. I will celebrate how God is working through their witness and their obedience, knowing that their belief does cover their household in ways they may not see until heaven.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
 </section>
 
-<!-- Section 8: Revision Cards -->
 <section id="revision-cards">
-<button class="collapsible-btn" aria-expanded="false" aria-controls="revision-cards-body">
-  Revision Cards <span class="chevron">&#9660;</span>
-</button>
-<div class="collapsible-body" id="revision-cards-body">
-  <p>Tap or click each card to reveal the answer. Test your recall of the key terms and scriptures.</p>
-  <div class="revision-cards">
-    <div class="card-container">
-      <div class="card">
-        <div class="card-front">
-          <h3>Term</h3>
-          <p>Unequally Yoked</p>
-        </div>
-        <div class="card-back">
-          <p class="label">Definition</p>
-          <p>Marriage where spouses are walking in two different directions spiritually — one believing in Christ, the other not. The image comes from oxen harnessed together; they must move as one.</p>
-        </div>
+  <button class="section-toggle" aria-expanded="false" aria-controls="revision-cards-body" id="revision-cards-btn">
+    Revision Cards <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="revision-cards-body">
+  <p class="flashcard-hint">Tap each card to reveal the answer.</p>
+  <div class="flashcard-grid">
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Card 1">
+      <div class="flashcard-inner">
+        <div class="flashcard-front"><p class="fc-prompt">What does "unequally yoked" mean, and why is it about direction rather than just difference?</p><p class="fc-ref">2 Corinthians 6:14</p></div>
+        <div class="flashcard-back"><p class="fc-def">Marriage where one spouse believes in Christ and the other doesn't. The image comes from oxen harnessed together — they must move as one. "Unequal" means different spiritual direction, not intelligence or social status.</p></div>
       </div>
     </div>
 
-    <div class="card-container">
-      <div class="card">
-        <div class="card-front">
-          <h3>Scripture</h3>
-          <p>2 Corinthians 6:14</p>
-        </div>
-        <div class="card-back">
-          <p class="label">The Passage</p>
-          <p>"Do not be unequally yoked together with unbelievers. For what fellowship has righteousness with lawlessness?"</p>
-        </div>
+    <div class="flashcard" role="button" tabindex="0" aria-label="Card 2">
+      <div class="flashcard-inner">
+        <div class="flashcard-front"><p class="fc-prompt">What does Paul forbid in 2 Corinthians 6:14, and what is his reason?</p><p class="fc-ref">2 Corinthians 6:14</p></div>
+        <div class="flashcard-back"><p class="fc-verse">"Do not be unequally yoked together with unbelievers. For what fellowship has righteousness with lawlessness?"</p><p class="fc-ref-back">2 Corinthians 6:14. Paul forbids marrying an unbeliever because the foundational directions are incompatible.</p></div>
       </div>
     </div>
 
-    <div class="card-container">
-      <div class="card">
-        <div class="card-front">
-          <h3>Term</h3>
-          <p>Sanctified (in this context)</p>
-        </div>
-        <div class="card-back">
-          <p class="label">What It Means</p>
-          <p>When one spouse believes, the marriage covenant itself is under God's covering. Not that the unbeliever is saved by the believer's faith, but that the believer's presence, prayers, and faithfulness change the spiritual reality of the home.</p>
-        </div>
+    <div class="flashcard" role="button" tabindex="0" aria-label="Card 3">
+      <div class="flashcard-inner">
+        <div class="flashcard-front"><p class="fc-prompt">What does "sanctified" mean in 1 Corinthians 7:14 for a spouse who doesn't believe?</p><p class="fc-ref">1 Corinthians 7:14</p></div>
+        <div class="flashcard-back"><p class="fc-verse">"For the unbelieving husband is sanctified by the wife, and the unbelieving wife is sanctified by the husband."</p><p class="fc-ref-back">1 Corinthians 7:14. Not that the unbeliever is saved by the believer's faith, but that the believer's marriage covenant is under God's covering. The home is spiritually covered.</p></div>
       </div>
     </div>
 
-    <div class="card-container">
-      <div class="card">
-        <div class="card-front">
-          <h3>Scripture</h3>
-          <p>1 Corinthians 7:14</p>
-        </div>
-        <div class="card-back">
-          <p class="label">The Passage</p>
-          <p>"For the unbelieving husband is sanctified by the wife, and the unbelieving wife is sanctified by the husband."</p>
-        </div>
+    <div class="flashcard" role="button" tabindex="0" aria-label="Card 4">
+      <div class="flashcard-inner">
+        <div class="flashcard-front"><p class="fc-prompt">What does the Levi and Abraham example show about a believer's place in covenant?</p><p class="fc-ref">Hebrews 7:10</p></div>
+        <div class="flashcard-back"><p class="fc-def">Levi paid tithe to Melchizedek "in the loins of Abraham" before he was born. Likewise, your faith and obedience are not wasted in an unequally yoked home. Your belief covers your household with a spiritual reality that matters.</p></div>
       </div>
     </div>
 
-    <div class="card-container">
-      <div class="card">
-        <div class="card-front">
-          <h3>Term</h3>
-          <p>The Two Directions</p>
-        </div>
-        <div class="card-back">
-          <p class="label">What This Means</p>
-          <p>A believer's life is aimed at obedience to Christ, faith-based decisions, and eternity. An unbeliever's life, however good-hearted, aims at other things. These directions create tension in every major decision.</p>
-        </div>
+    <div class="flashcard" role="button" tabindex="0" aria-label="Card 5">
+      <div class="flashcard-inner">
+        <div class="flashcard-front"><p class="fc-prompt">What does 1 Peter 3:1–2 teach about witness in an unequally yoked marriage?</p><p class="fc-ref">1 Peter 3:1–2</p></div>
+        <div class="flashcard-back"><p class="fc-verse">"Wives, be submissive... that even if some do not obey the word, they... may be won by the conduct of the wives, when they observe your chaste conduct accompanied by fear [of God]."</p><p class="fc-ref-back">1 Peter 3:1–2. Your holiness, faithfulness, and integrity matter. They are not wasted. God honours your obedience and uses it.</p></div>
       </div>
     </div>
 
-    <div class="card-container">
-      <div class="card">
-        <div class="card-front">
-          <h3>Scripture</h3>
-          <p>1 Peter 3:1–2</p>
-        </div>
-        <div class="card-back">
-          <p class="label">The Passage</p>
-          <p>"Wives, be submissive... that even if some do not obey the word, they... may be won by the conduct of the wives, when they observe your chaste conduct accompanied by fear [of God]."</p>
-        </div>
+    <div class="flashcard" role="button" tabindex="0" aria-label="Card 6">
+      <div class="flashcard-inner">
+        <div class="flashcard-front"><p class="fc-prompt">What does Amos 3:3 reveal about marriage and agreement?</p><p class="fc-ref">Amos 3:3</p></div>
+        <div class="flashcard-back"><p class="fc-verse">"Can two walk together, unless they are agreed?"</p><p class="fc-ref-back">Amos 3:3. Marriage is not just a feeling but a direction. When you walk together for decades on fundamentally different spiritual paths, the strain affects everything: how you raise children, what you pray for, how you spend money, what you believe is worth living for.</p></div>
       </div>
     </div>
+
   </div>
-</div>
+  </div>
 </section>
 
-<!-- Floating TOC -->
-<div class="floating-toc">
-  <button class="toc-btn" id="toc-toggle" aria-expanded="false" aria-controls="toc-menu">☰ Contents</button>
-  <div class="toc-menu" id="toc-menu">
-    <a href="#" onclick="document.querySelector('.title-block').scrollIntoView({ behavior: 'smooth' }); return false;">Title</a>
-    <a href="#" onclick="document.querySelector('.opening-section').scrollIntoView({ behavior: 'smooth' }); return false;">Opening Question</a>
-    <a href="#" onclick="document.querySelector('.key-scripture').scrollIntoView({ behavior: 'smooth' }); return false;">Key Scripture</a>
-    <a href="#" onclick="document.querySelector('.core-truth').scrollIntoView({ behavior: 'smooth' }); return false;">Core Truth</a>
-    <a href="#" onclick="document.querySelector('#bible-teaching').parentElement.classList.add('open'); document.querySelector('#bible-teaching').scrollIntoView({ behavior: 'smooth' }); return false;">Bible Teaching</a>
-    <a href="#" onclick="document.querySelector('#discovery-questions').parentElement.classList.add('open'); document.querySelector('#discovery-questions').scrollIntoView({ behavior: 'smooth' }); return false;">Discovery Questions</a>
-    <a href="#" onclick="document.querySelector('#discussion-questions').parentElement.classList.add('open'); document.querySelector('#discussion-questions').scrollIntoView({ behavior: 'smooth' }); return false;">Discussion Questions</a>
-    <a href="#" onclick="document.querySelector('#application').parentElement.classList.add('open'); document.querySelector('#application').scrollIntoView({ behavior: 'smooth' }); return false;">Application</a>
-    <a href="#" onclick="document.querySelector('#revision-cards').parentElement.classList.add('open'); document.querySelector('#revision-cards').scrollIntoView({ behavior: 'smooth' }); return false;">Revision Cards</a>
-  </div>
+<div class="series-close">
+  <p class="series-close-label">Lesson 11 Complete</p>
+  <p class="series-close-text">This lesson speaks to one of the most delicate and important decisions in marriage: whether to enter the covenant with someone who does not share your faith. For those considering it: God's Word warns you clearly. For those already there: God's grace covers you. In both cases, God sees your faithfulness, honours your obedience, and His Word stands sure. Carry these truths forward to Lesson 12.</p>
+  <p><a href="index.html">&#8592; Back to all lessons</a></p>
 </div>
 
-<!-- Footer -->
 <div class="page-footer">
-  <p>Bible Pointers on Marriage &middot; The Well Shrewsbury</p>
-  <div class="footer-links">
-    <a href="index.html">← Back to lessons</a>
-  </div>
+  <p>Bible Pointers on Marriage &middot; Lesson 11: Being Unequally Yoked &middot; The Well Shrewsbury &middot; <a href="index.html">Back to all lessons</a></p>
 </div>
 
-<script>
-// Collapsible sections
-document.querySelectorAll('.collapsible-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', !isExpanded);
-    const bodyId = btn.getAttribute('aria-controls');
-    const body = document.getElementById(bodyId);
-    body.classList.toggle('open');
-  });
-});
-
-// TOC menu
-const tocToggle = document.getElementById('toc-toggle');
-const tocMenu = document.getElementById('toc-menu');
-tocToggle.addEventListener('click', () => {
-  const isExpanded = tocToggle.getAttribute('aria-expanded') === 'true';
-  tocToggle.setAttribute('aria-expanded', !isExpanded);
-  tocMenu.classList.toggle('open');
-});
-
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.floating-toc')) {
-    tocToggle.setAttribute('aria-expanded', 'false');
-    tocMenu.classList.remove('open');
-  }
-});
-
-// Discovery Questions — localStorage
-function loadAnswers() {
-  document.querySelectorAll('[data-key]').forEach(cell => {
-    const key = cell.getAttribute('data-key');
-    const saved = localStorage.getItem(key);
-    if (saved) {
-      cell.textContent = saved;
-    }
-  });
-}
-
-function saveAnswer(cell) {
-  const key = cell.getAttribute('data-key');
-  const value = cell.textContent;
-  localStorage.setItem(key, value);
-}
-
-document.querySelectorAll('[data-key]').forEach(cell => {
-  cell.addEventListener('blur', () => saveAnswer(cell));
-  cell.addEventListener('input', () => saveAnswer(cell));
-});
-
-// Download answers
-document.getElementById('btn-download-l11').addEventListener('click', () => {
-  let content = 'Bible Pointers on Marriage — Lesson 11: Being Unequally Yoked\nYour Answers\n\n';
-  const questions = [
-    'In what ways does 2 Corinthians 6:14–17 speak both a warning and a boundary?',
-    'If you are already married to someone who doesn\'t believe, how does "sanctification" change how you think about that marriage?',
-    'What are the hidden costs of marrying an unbeliever?',
-    'If someone you love wanted to marry an unbeliever, what would you want them to understand?',
-    'How does the truth that your faith covers your household change how you live in an unequally yoked marriage?'
-  ];
-  questions.forEach((q, i) => {
-    const key = `bpm-l11-q${i + 1}-answer`;
-    const answer = localStorage.getItem(key) || '(No answer saved)';
-    content += `Q${i + 1}: ${q}\n${answer}\n\n`;
-  });
-  const blob = new Blob([content], { type: 'text/plain' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'bpm-l11-answers.txt';
-  a.click();
-  URL.revokeObjectURL(url);
-});
-
-// Clear answers with confirmation
-document.getElementById('btn-clear-l11').addEventListener('click', () => {
-  if (confirm('Are you sure you want to clear all your answers? This cannot be undone.')) {
-    for (let i = 1; i <= 5; i++) {
-      const key = `bpm-l11-q${i}-answer`;
-      localStorage.removeItem(key);
-      const cell = document.querySelector(`[data-key="${key}"]`);
-      if (cell) cell.textContent = '';
-    }
-  }
-});
-
-// Load answers on page load
-loadAnswers();
-
-// Flip cards
-document.querySelectorAll('.card').forEach(card => {
-  card.addEventListener('click', function() {
-    this.classList.toggle('flipped');
-  });
-});
-</script>
+<nav class="toc-container" role="navigation" aria-label="Jump to section">
+  <div class="toc-menu" id="toc-menu">
+    <a href="#opening-question">Opening Question</a>
+    <a href="#key-scripture">Key Scripture</a>
+    <a href="#core-truth">Core Truth</a>
+    <a href="#bible-teaching">Bible Teaching</a>
+    <a href="#discovery-questions">Key Discovery Questions</a>
+    <a href="#group-discussion">Group Discussion</a>
+    <a href="#application">Application</a>
+    <a href="#revision-cards">Revision Cards</a>
+  </div>
+  <button class="toc-btn" id="toc-btn" aria-expanded="false" aria-controls="toc-menu">&#9776; Jump to section</button>
+</nav>
 
 <script src="bpm-site.js"></script>
 <script src="bpm-lesson-page.js"></script>
